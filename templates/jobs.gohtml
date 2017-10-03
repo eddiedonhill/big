@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <title>Bigworthy: Jobs</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+
+    <!-- styles needed for carousel slider -->
+    <link href="../assets/css/owl.carousel.css" rel="stylesheet">
+    <link href="../assets/css/owl.theme.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+   
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+
+    <!-- include pace script for automatic web page progress bar  -->
+
+    <script>
+        paceOptions = {
+            elements: true
+        };
+    </script>
+    <script src="../assets/js/pace.min.js"></script>
+
+</head>
+<body style="background-color: #fff;">
+
+
+<div id="wrapper">
+   <div class="header">
+        <nav class="navbar navbar-site navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
+                            class="icon-bar"></span> <span class="icon-bar"></span></button>
+                    <a href="https://bigworthy.com" class="navbar-brand logo logo-title">
+                        <!-- Original Logo will be placed here  -->
+						<span>Bigworthy </span> </a></div>
+                <div class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+                       
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span>eddiedonhill@gmail.com</span>  <i
+                                class=" icon-down-open-big fa"></i></a>
+                            <ul class="dropdown-menu user-menu">
+                               <li class="active"><a href="/account-home"><i class="icon-home"></i> Home
+                                </a></li>
+
+                                <li><a href="/account-postings"><i class="icon-th-thumb"></i> My posts </a></li>
+                                <li><a href="/account-favorites"><i class="fa fa-star"></i> Favorites </a>
+                                </li>
+                                <li><a href="/account-saved-search"><i class="icon-folder-close"></i> Saved search
+                                </a></li>
+                                <li><a href="/account-archive"><i class="fa fa-archive"></i> Archives
+                                </a></li>
+								<li><a href="/logout.php"><i class="icons icon-logout"></i> Logout
+                                </a></li>
+                              
+                                
+                            </ul>
+                        </li>
+                        <li class="postadd"><a class="btn btn-block   btn-border btn-post btn-danger"
+                                               href="/post">Post</a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
+    <!-- /.header -->     <div class="search-row-wrapper">
+        <div class="container text-center">
+                <form action="" method="">
+				   <div class="col-md-12">
+                     <div class="input-group">
+                      <input type="text" placeholder="search jobs" name="search" class="form-control" aria-label="...">
+                      <div class="input-group-btn">
+                        <button class="btn btn-block btn-primary "><i class="fa fa-search"></i></button>
+                       
+                      </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+                </div>
+				</form>
+        </div>
+    </div>
+    <!-- /.search-row -->
+
+                <!-- this (.mobile-filter-sidebar) part will be position fixed in mobile version -->
+                <div class="col-sm-2 page-sidebar mobile-filter-sidebar">
+                    <aside>
+                        <div class="inner-box">
+						<div class="locations-list  list-filter">
+                                <h5 class="list-title"><strong><select name="formal" onchange="location = this.value;" class="selectpicker" data-style="btn-select" data-width="auto">
+                        <option selected="selected" value="jobs"> Jobs</option>
+						<option value="automobiles"> Automobiles</option>
+                        <option value="property"> Property</option>
+                        <option value="forsale"> For Sale</option>       
+                        <option value="services"> Services</option>
+                        <option value="learning"> Learning</option>
+                        <option value="community"> Community</option>
+                        <option value="pets"> Pets</option>
+                                </select></strong></h5>
+
+						
+                                <ul class="browse-list list-unstyled long-list">
+										<li> <a href="?category=accounting">Accounting + Finance</a></li>
+										<li> <a href="?category=architecture">Architecture</a></li>
+										<li> <a href="?category=arts">Arts & Media</a></li>
+										<li> Science</a></li>
+										<li> Business + Management</a></li>
+										<li> Customer Service</a></li>
+										<li> Education</a></li>
+										<li> Engineering</a></li>
+										<li> Food & Hospitality</a></li>
+										<li> General Labor</a></li>
+										<li> Government</a></li>
+										<li> Human Resources</a></li>
+										<li> IT & Web Services</a></li>
+										<li> Legal + Paralegal</a></li>
+										<li> Manufacturing</a></li>
+										<li> Marketing</a></li>
+										<li> Health + Medical</a></li>
+										<li> Nonprofit</a></li>
+										<li> Real Estate</a></li>
+										<li> Retail + Wholesale</a></li>
+										<li> Health & Beauty</a></li>
+										<li> Spa & Fitness</a></li>
+										<li> <a href="?category=security">Security</a></li>
+										<li> Skilled Trade</a></li>
+										<li> Transportation</a></li>
+										<li> Film & Television</a></li>
+                                </ul>
+								
+                            </div>
+                            <!--/.list-filter-->
+                            <div class=" list-filter">
+                                <h5 class="list-title"><strong><a href="#"> Date Posted </a></strong></h5>
+
+                                <div class="filter-date filter-content">
+                                    <ul>
+                                        <li>
+                                            <input type="radio" value="1" id="posted_1" name="posted">
+                                            <label for="posted_1">24 hours</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" value="3" id="posted_3" name="posted">
+                                            <label for="posted_3">3 days</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" value="7" id="posted_7" name="posted">
+                                            <label for="posted_7">7 days</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" checked="checked" value="30" id="posted_30"
+                                                   name="posted">
+                                            <label for="posted_30">30 days</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--/.categories-list-->
+
+                            <div class="list-filter">
+                                <h5 class="list-title"><strong><a href="#">Employment Type</a></strong></h5>
+
+                                <div class="filter-content filter-employment-type">
+                                    <ul class="browse-list list-unstyled">
+                                        <li>
+                                            <input type="checkbox" id="employment_all" value="all" class="emp"
+                                                   checked="checked">
+                                            <label for="employment_all">All</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="employment_jtft" value="jtft"
+                                                   class="emp emp-type">
+                                            <label for="employment_jtft">Full Time</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="employment_jtpt" value="jtpt"
+                                                   class="emp emp-type">
+                                            <label for="employment_jtpt">Part Time</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="employment_jtct" value="jtct"
+                                                   class="emp emp-type">
+                                            <label for="employment_jtct">Contractor</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="employment_jtin" value="jtin"
+                                                   class="emp emp-type">
+                                            <label for="employment_jtin">Intern</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="employment_jtse" value="jtse"
+                                                   class="emp emp-type">
+                                            <label for="employment_jtse">Seasonal / Temp</label>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                            <!--/.locations-list-->
+
+                            <div class="  list-filter">
+                                <h5 class="list-title"><strong><a href="#">Salary Pay Range</a></strong></h5>
+
+
+                                <div class="filter-salary filter-content ">
+                                   
+                                    <div class="clearfix"></div>
+
+                                    <ul class="mt15">
+                                        <li>
+                                            <input type="radio" name="pay" id="pay_0" value="0" checked="checked">
+                                            <label for="pay_0">Any</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="pay" id="pay_20" value="20">
+                                            <label for="pay_20">$20,000+</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="pay" id="pay_40" value="40">
+                                            <label for="pay_40">$40,000+</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="pay" id="pay_60" value="60">
+                                            <label for="pay_60">$60,000+</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="pay" id="pay_80" value="80">
+                                            <label for="pay_80">$80,000+</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="pay" id="pay_100" value="100">
+                                            <label for="pay_100">$100,000+</label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="pay" id="pay_120" value="120">
+                                            <label for="pay_120">$120,000+</label>
+                                        </li>
+                                    </ul><input type="submit">
+                                </div>
+                                <div style="clear:both"></div>
+                            </div>
+                            <!--/.list-filter-->
+
+
+                            
+
+                           
+
+                            <div style="clear:both"></div>
+                        </div>
+
+                        <!--/.categories-list-->
+                    </aside>
+                </div>
+                <!--/.page-side-bar-->
+                <div class="col-sm-10 page-content col-thin-left">
+
+                    <div class="category-list">
+                        <div class="tab-box clearfix ">
+
+                            <!-- Nav tabs -->
+                            <div class="col-lg-12  box-title no-border">
+                                <div class="inner">
+                                    
+                                </div>
+                            </div>
+
+                            <!-- Mobile Filter bar -->
+                            <div class="mobile-filter-bar col-lg-12  ">
+                                <ul class="list-unstyled list-inline no-margin no-padding">
+                                    <li class="filter-toggle">
+                                        <a class="">
+                                            <i class="  icon-th-list"></i>
+                                            Filters
+                                        </a>
+                                    </li>
+                                    <li>
+
+
+                                        <div class="dropdown">
+                                           
+                                             <span class="cityName"><a href="https://www.bigworthy.com/fresno"> Fresno, CA </a></span> 
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="menu-overly-mask"></div>
+                            <!-- Mobile Filter bar End-->
+
+
+                            <div class="tab-filter hide-xs">
+
+                                <select class="selectpicker" data-style="btn-select" data-width="auto">
+								<option>Sort by</option>
+                                    <option value="FULLTIME" name="FULLTIME">Full-time
+                                                    </option>
+                                                    <option value="PARTTIME" name="PARTTIME">Part-time</option>
+                                                    <option value="TEMPORARY" name="TEMPORARY">Temporary</option>
+                                                    <option value="CONTRACT" name="CONTRACT">Contract</option>
+                                                    <option value="INTERNSHIP" name="INTERNSHIP">Internship</option>
+                                                    <option value="PERMANENT" name="PERMANENT">Permanent</option>
+                                                    <option value="Optional" name="Optional">Optional</option>
+                                </select>
+                            </div>
+                            <!--/.tab-filter-->
+
+                        </div>
+                        <!--/.tab-box-->
+
+                        <div class="listing-filter hidden-xs">
+                            <div class="pull-left col-sm-6 col-xs-12">
+                                <div class="breadcrumb-list text-center-xs">
+                                    
+                                    <span class="cityName"><a href="https://www.bigworthy.com/fresno"> Fresno, CA </a></span> </div>
+                            </div>
+                            <div class="pull-right col-sm-6 col-xs-12 text-right text-center-xs listing-view-action">
+                                <a class="clear-all-button text-muted">Clear all</a>
+                            </div>
+                            <div style="clear:both"></div>
+                        </div>
+                        <!--/.listing-filter-->
+                        <div class="adds-wrapper jobs-list">
+                          <div class="item-list job-item"> <div class="col-sm-10  col-xs-10  add-desc-box"><div class="add-details jobs-item"><h5 class="company-title ">Fresno Programming</h5><h4 class="job-title"><a href="../jobs-post?id=82">Security Programmer</a></h4<span class="info-row"><span class="item-location"></i></span><span class="date">&nbsp;April 13, 2017</span></span> <div class="jobs-desc"></div><div class="job-actions"><ul class="list-unstyled list-inline"><li><button class="save-job"><span class="fa fa-star-o"></span>save</button></li><li><button class="save-job hide"><span class="fa fa-star"></span>saved</button></li><li><button class="save-job"><span class="fa fa-envelope"></span>Email</button></li></ul></div></div></div></div><div class="item-list job-item"> <div class="col-sm-10  col-xs-10  add-desc-box"><div class="add-details jobs-item"><h5 class="company-title ">Mike's Restuarant</h5><h4 class="job-title"><a href="../jobs-post?id=80">Cashier</a></h4<span class="info-row"><span class="item-location"></i></span><span class="date">&nbsp;March 20, 2017</span></span> <div class="jobs-desc"></div><div class="job-actions"><ul class="list-unstyled list-inline"><li><button class="save-job"><span class="fa fa-star-o"></span>save</button></li><li><button class="save-job hide"><span class="fa fa-star"></span>saved</button></li><li><button class="save-job"><span class="fa fa-envelope"></span>Email</button></li></ul></div></div></div></div>
+
+                        </div>
+                        <!--/.adds-wrapper-->
+
+                        <div class="tab-box  save-search-bar text-center"><a href=""> <i class=" icon-star-empty"></i>
+                            Save Search </a></div>
+                    </div>
+                    <div class="pagination-bar text-center">
+                        <ul class="pagination">
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#"> ...</a></li>
+                            <li><a class="pagination-btn" href="#">Next &raquo;</a></li>
+                        </ul>
+                    </div>
+                    <!--/.pagination-bar -->
+
+                  
+
+                </div>
+                <!--/.page-content-->
+
+      
+    <!-- /.main-container -->
+
+ <div class="footer" id="footer">
+        <div class="container">
+            <ul class=" pull-left navbar-link footer-nav">
+                <li><a href="https://bigworthy.com"> Home </a> <a href="/about"> About us </a> <a href="/terms"> Terms and
+                    Conditions </a> <a href="/privacy"> Privacy Policy </a> <a href="/contact"> Contact us </a> <a
+                        href="/faq"> FAQ </a>
+            </ul>
+            <ul class=" pull-right navbar-link footer-nav">
+                <li> &copy; 2017 Bigworthy</li>
+            </ul>			
+        </div>
+    </div>
+
+
+      <!-- /.footer -->
+	
+</div>
+<!-- /.wrapper -->
+
+<!-- Modal Change City -->
+
+<div class="modal fade" id="selectRegion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel"><i class=" icon-map"></i> Choose your region </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+
+
+                        <div style="clear:both"></div>
+                        <div class="col-sm-6 no-padding">
+                           <form action="" method="">
+				   <div class="col-md-12">
+                     <div class="input-group">
+                      <input type="text" placeholder="Enter your location" class="form-control" aria-label="...">
+                      <div class="input-group-btn">
+                        <button class="btn btn-block btn-primary "><i class="fa fa-search"></i></button>
+                       
+                      </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+                </div>
+				</form>
+                        </div>
+                       
+
+                       
+                    </div>
+                
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /.modal -->
+
+<!-- Le javascript
+================================================== -->
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- include carousel slider plugin  -->
+<script src="../assets/js/owl.carousel.min.js"></script>
+
+<!-- include equal height plugin  -->
+<script src="../assets/js/jquery.matchHeight-min.js"></script>
+
+<!-- include jquery list shorting plugin plugin  -->
+<script src="../assets/js/hideMaxListItem.js"></script>
+
+<!-- include jquery.fs plugin for custom scroller and selecter  -->
+<script src="../assets/plugins/jquery.fs.scroller/jquery.fs.scroller.js"></script>
+<script src="../assets/plugins/jquery.fs.selecter/jquery.fs.selecter.js"></script>
+<!-- include custom script for site  -->
+<script src="../assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <title>Bigworthy</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+    <!-- styles needed for carousel slider -->
+    <link href="/assets/css/owl.carousel.css" rel="stylesheet">
+    <link href="/assets/css/owl.theme.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- include pace script for automatic web page progress bar  -->
+
+    <script>
+        paceOptions = {
+            elements: true
+        };
+    </script>
+    <script src="/assets/js/pace.min.js"></script>
+<script>
+      // This example displays an address form, using the autocomplete feature
+      // of the Google Places API to help users fill in the information.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      var placeSearch, autocomplete;
+      var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+
+      function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+
+        for (var component in componentForm) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+          }
+        }
+      }
+
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC65UFp8q9su3ITSsffqAzTO0LS410qnxQ&libraries=places&callback=initAutocomplete"
+        async defer></script>
+  </body>
+
+ 
+</head>
+<body>
+
+
+<div id="wrapper">
+
+
+    <div class="header">
+        <nav class="navbar   navbar-site navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
+                            class="icon-bar"></span> <span class="icon-bar"></span></button>
+                    <a href="/" class="navbar-brand logo logo-title">
+                        <!-- Original Logo will be placed here  -->
+                        <span>Bigworthy </span> </a></div>
+                 <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/signup">Signup</a></li>
+                        <li class="postadd"><a class="btn btn-block   btn-border btn-post btn-danger"
+                                               href="/post">Post</a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+                <!--/.nav-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
+    <!-- /.header -->
+
+  
+
+   
+    <div id="content" class="search-v1">
+            <div class="panel">
+              <div class="panel-body">
+           <div class="intro" >
+        <div class="dtable hw100">
+            <div class="dtable-cell hw100">
+                <div class="container text-center">
+                    <div class="row search-row animated fadeInUp">
+                        <div class="col-lg-4 col-sm-4 search-col relative"><i class="icon-docs icon-append"></i>
+                            <input type="text" name="ads" class="form-control has-icon"
+                                   placeholder="What?" value="">
+                        </div>
+                        <div class="col-lg-4 col-sm-4 search-col relative locationicon">
+                            <i class="icon-location-2 icon-append"></i>
+                            <input type="text" name="country" id="autocomplete-ajax"
+                                   class="form-control locinput input-rel searchtag-input has-icon"
+                                   placeholder="Where?" value="">
+
+                        </div>
+                        
+                        <div class="col-lg-4 col-sm-4 search-col">
+                            <a href="/search"><button class="btn btn-primary btn-search btn-block"><i
+                                    class="icon-search"></i><strong>Find</strong></button></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.intro -->
+
+				
+<hr class="center-block text-hr">
+                        
+
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4">
+							
+                                <div class="cat-list">
+                                    <h3  style="text-align:center;" >
+									<a aria-controls="collapseOne"  aria-expanded="true" href="#collapseOne"
+                                       data-parent="#accordion" data-toggle="collapse">
+                                        United States </a>
+
+                                       
+                                    </h3>
+                                    <ul aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse"
+                                 id="collapseOne"> 
+									<div class="col-sm-4">
+									
+									<h4>Alabama</h4><li><a href="auburn">auburn</a></li>
+										<li><a href="birmingham">birmingham</a></li>
+										<li><a href="dothan">dothan</a></li>
+										<li><a href="florence">florence / muscle shoals</a></li>
+										<li><a href="gadsden">gadsden-anniston</a></li>
+										<li><a href="huntsville">huntsville / decatur</a></li>
+										<li><a href="mobile">mobile</a></li>
+										<li><a href="montgomery">montgomery</a></li>
+										<li><a href="tuscaloosa#">tuscaloosa</a></li>
+										
+										<br>
+	<h4>Alaska</h4>
+	
+	<li><a href="anchorage">anchorage / mat-su</a></li>
+	<li><a href="#">fairbanks</a></li>
+	<li><a href="fairbanks">kenai peninsula</a></li>
+	<li><a href="#">southeast alaska</a></li>
+	
+	<br>
+	<h4>Arizona</h4>
+	
+	<li><a href="flagstaff">flagstaff / sedona</a></li>
+	<li><a href="#">mohave county</a></li>
+	<li><a href="phoenix">phoenix</a></li>
+	<li><a href="prescott">prescott</a></li>
+	<li><a href="#">show low</a></li>
+	<li><a href="#">sierra vista</a></li>
+	<li><a href="tucson">tucson</a></li>
+	<li><a href="yuma">yuma</a></li>
+	
+	<br>
+	<h4>Arkansas</h4>
+	
+	<li><a href="fayetteville">fayetteville </a></li>
+	<li><a href="#">fort smith</a></li>
+	<li><a href="jonesboro">jonesboro</a></li>
+	<li><a href="littlerock">little rock</a></li>
+	<li><a href="texarkana">texarkana</a></li>
+	
+	<br>
+	<h4>California</h4>
+	
+	<li><a href="bakersfield">bakersfield</a></li>
+	<li><a href="chico">chico</a></li>
+	<li><a href="/fresno/">fresno</a></li>
+	<li><a href="#">gold country</a></li>
+	<li><a href="#">hanford-corcoran</a></li>
+	<li><a href="#">humboldt county</a></li>
+	<li><a href="#">imperial county</a></li>
+	<li><a href="#">inland empire</a></li>
+	<li><a href="losangeles">los angeles</a></li>
+	<li><a href="#">mendocino county</a></li>
+	<li><a href="merced">merced</a></li>
+	<li><a href="modesto">modesto</a></li>
+	<li><a href="montery">monterey bay</a></li>
+	<li><a href="#">orange county</a></li>
+	<li><a href="palmsprings">palm springs</a></li>
+	<li><a href="redding">redding</a></li>
+	<li><a href="sacramento">sacramento</a></li>
+	<li><a href="sandiego">san diego</a></li>
+	<li><a href="sanfrancisco">san francisco bay area</a></li>
+	<li><a href="sanluisobispo">san luis obispo</a></li>
+	<li><a href="santabarbara">santa barbara</a></li>
+	<li><a href="santamaria">santa maria</a></li>
+	<li><a href="#">siskiyou county</a></li>
+	<li><a href="stockton">stockton</a></li>
+	<li><a href="susanville">susanville</a></li>
+	<li><a href="#">ventura county</a></li>
+	<li><a href="visalia">visalia-tulare</a></li>
+	<li><a href="#">yuba-sutter</a></li>
+	
+	<br>
+	<h4>Colorado</h4>
+
+	<li><a href="#">boulder</a></li>
+	<li><a href="#">colorado springs</a></li>
+	<li><a href="denver">denver</a></li>
+	<li><a href="#">eastern CO</a></li>
+	<li><a href="#">fort collins / north CO</a></li>
+	<li><a href="#">high rockies</a></li>
+	<li><a href="pueblo">pueblo</a></li>
+	<li><a href="#">western slope</a></li>
+	
+	<br>
+	<h4>Connecticut</h4>
+
+	<li><a href="#">eastern CT</a></li>
+	<li><a href="hartford">hartford</a></li>
+	<li><a href="#">new haven</a></li>
+	<li><a href="#">northwest CT</a></li>
+	
+	<br>
+	<h4>Delaware</h4>
+	<li><a href="#">delaware</a></li>
+	
+	<br>
+	<h4>District of Columbia</h4>
+	<li><a href="washingtondc">washington</a></li>
+	
+	<br>
+	<h4>Florida</h4>
+	<li><a href="#">broward county</a></li>
+	<li><a href="#">daytona beach</a></li>
+	<li><a href="#">florida keys</a></li>
+	<li><a href="#">fort lauderdale</a></li>
+	<li><a href="#">ft myers / SW florida</a></li>
+	<li><a href="gainesville">gainesville</a></li>
+	<li><a href="#">heartland florida</a></li>
+	<li><a href="jacksonville">jacksonville</a></li>
+	<li><a href="#">lakeland</a></li>
+	<li><a href="miami">miami / dade</a></li>
+	<li><a href="#">north central FL</a></li>
+	<li><a href="#">ocala</a></li>
+	<li><a href="#">okaloosa / walton</a></li>
+	<li><a href="orlando">orlando</a></li>
+	<li><a href="#">panama city</a></li>
+	<li><a href="pensacola">pensacola</a></li>
+	<li><a href="#">sarasota-bradenton</a></li>
+	<li><a href="#">south florida</a></li>
+	<li><a href="#">space coast</a></li>
+	<li><a href="#">st augustine</a></li>
+	<li><a href="tallahassee">tallahassee</a></li>
+	<li><a href="#">tampa bay area</a></li>
+	<li><a href="#">treasure coast</a></li>
+	<li><a href="#">palm beach county</a></li>
+	
+	<br>
+	<h4>Georgia</h4>
+	<li><a href="albany">albany </a></li>
+	<li><a href="athens">athens</a></li>
+	<li><a href="atlanta">atlanta</a></li>
+	<li><a href="agusta">augusta</a></li>
+	<li><a href="brunswick">brunswick</a></li>
+	<li><a href="columbus">columbus </a></li>
+	<li><a href="#">macon / warner robins</a></li>
+	<li><a href="#">northwest GA</a></li>
+	<li><a href="#">savannah / hinesville</a></li>
+	<li><a href="#">statesboro</a></li>
+	<li><a href="#">valdosta</a></li>
+	
+	<br>
+	<h4>Hawaii</h4>	
+	<li><a href="hawaii">hawaii</a></li>
+	
+	<br>
+	<h4>Idaho</h4>
+	<li><a href="boise">boise</a></li>
+	<li><a href="#">east idaho</a></li>
+	<li><a href="#">lewiston / clarkston</a></li>
+	<li><a href="v">twin falls</a></li>
+	
+	<br>
+	<h4>Illinois</h4>
+	<li><a href="#">bloomington-normal</a></li>
+	<li><a href="#">champaign urbana</a></li>
+	<li><a href="chicago">chicago</a></li>
+	<li><a href="decatur">decatur</a></li>
+	<li><a href="#">la salle co</a></li>
+	<li><a href="#">mattoon-charleston</a></li>
+	<li><a href="peoria">peoria</a></li>
+	<li><a href="rockford">rockford</a></li>
+	<li><a href="#">southern illinois</a></li>
+	<li><a href="springfield">springfield </a></li>
+	<li><a href="#">western IL</a></li>
+	
+	<br>
+	<h4>Indiana</h4>
+	<li><a href="bloomington">bloomington</a></li>
+	<li><a href="evansville">evansville</a></li>
+	<li><a href="#">fort wayne</a></li>
+	<li><a href="indianapolis">indianapolis</a></li>
+	<li><a href="#">kokomo</a></li>
+	<li><a href="#">lafayette / west lafayette</a></li>
+	<li><a href="#">muncie / anderson</a></li>
+	<li><a href="richmond">richmond </a></li>
+	<li><a href="#">south bend / michiana</a></li>
+	<li><a href="#">terre haute</a></li>
+	
+	<br>
+	<h4>Iowa</h4>
+	<li><a href="#">ames</a></li>
+	<li><a href="#">cedar rapids</a></li>
+	<li><a href="#">des moines</a></li>
+	<li><a href="#">dubuque</a></li>
+	<li><a href="#">fort dodge</a></li>
+	<li><a href="#">iowa city</a></li>
+	<li><a href="#">mason city</a></li>
+	<li><a href="#">quad cities</a></li>
+	<li><a href="#">sioux city</a></li>
+	<li><a href="#">southeast IA</a></li>
+	<li><a href="#">waterloo / cedar falls</a></li>
+	                               </div>
+									<div class="col-sm-4">
+									
+	<h4>Kansas</h4>
+	<li><a href="#">lawrence</a></li>
+	<li><a href="#">manhattan</a></li>
+	<li><a href="#">northwest KS</a></li>
+	<li><a href="#">salina</a></li>
+	<li><a href="#">southeast KS</a></li>
+	<li><a href="#">southwest KS</a></li>
+	<li><a href="#">topeka</a></li>
+	<li><a href="#">wichita</a></li>
+	
+	<br>	
+	<h4>Kentucky</h4>
+	<li><a href="#">bowling green</a></li>
+	<li><a href="#">eastern kentucky</a></li>
+	<li><a href="#">lexington</a></li>
+	<li><a href="#">louisville</a></li>
+	<li><a href="#">owensboro</a></li>
+	<li><a href="#">western KY</a></li>		
+	
+	<br>
+	<h4>Louisiana</h4>
+	<li><a href="#">baton rouge</a></li>
+	<li><a href="#">central louisiana</a></li>
+	<li><a href="#">houma</a></li>
+	<li><a href="#">lafayette</a></li>
+	<li><a href="#">lake charles</a></li>
+	<li><a href="#">monroe</a></li>
+	<li><a href="#">new orleans</a></li>
+	<li><a href="#">shreveport</a></li>
+	
+	<br>
+	<h4>Maine</h4>
+	<li><a href="#">maine</a></li>
+	
+	<br>
+	<h4>Maryland</h4>
+	<li><a href="#">annapolis</a></li>
+	<li><a href="#">baltimore</a></li>
+	<li><a href="#">eastern shore</a></li>
+	<li><a href="#">frederick</a></li>
+	<li><a href="#">southern maryland</a></li>
+	<li><a href="#">western maryland</a></li>
+	
+	<br>
+	<h4>Massachusetts</h4>
+	<li><a href="#">boston</a></li>
+	<li><a href="#">cape cod / islands</a></li>
+	<li><a href="#">south coast</a></li>
+	<li><a href="#">western massachusetts</a></li>
+	<li><a href="#">worcester / central MA</a></li>
+	
+	<br>
+	<h4>Michigan</h4>
+	<li><a href="#">ann arbor</a></li>
+	<li><a href="#">battle creek</a></li>
+	<li><a href="#">central michigan</a></li>
+	<li><a href="#">detroit metro</a></li>
+	<li><a href="#">flint</a></li>
+	<li><a href="#">grand rapids</a></li>
+	<li><a href="#">holland</a></li>
+	<li><a href="#">jackson </a></li>
+	<li><a href="#">kalamazoo</a></li>
+	<li><a href="#">lansing</a></li>
+	<li><a href="#">monroe </a></li>
+	<li><a href="#">muskegon</a></li>
+	<li><a href="#">northern michigan</a></li>
+	<li><a href="#">port huron</a></li>
+	<li><a href="#">saginaw-midland-baycity</a></li>
+	<li><a href="#">southwest michigan</a></li>
+	<li><a href="#">the thumb</a></li>
+	<li><a href="#">upper peninsula</a></li>
+	
+	<br>
+	<h4>Minnesota</h4>
+	<li><a href="#">bemidji</a></li>
+	<li><a href="#">brainerd</a></li>
+	<li><a href="#">duluth / superior</a></li>
+	<li><a href="#">mankato</a></li>
+	<li><a href="#">minneapolis / st paul</a></li>
+	<li><a href="#">rochester </a></li>
+	<li><a href="#">southwest MN</a></li>
+	<li><a href="#">st cloud</a></li>
+	
+	<br>
+	<h4>Mississippi</h4>
+	<li><a href="#">gulfport / biloxi</a></li>
+	<li><a href="#">hattiesburg</a></li>
+	<li><a href="#">jackson</a></li>
+	<li><a href="#">meridian</a></li>
+	<li><a href="#">north mississippi</a></li>
+	<li><a href="#">southwest MS</a></li>
+	
+	<br>
+	<h4>Missouri</h4>
+	<li><a href="#">columbia / jeff city</a></li>
+	<li><a href="#">joplin</a></li>
+	<li><a href="#">kansas city</a></li>
+	<li><a href="#">kirksville</a></li>
+	<li><a href="#">lake of the ozarks</a></li>
+	<li><a href="#">southeast missouri</a></li>
+	<li><a href="#">springfield</a></li>
+	<li><a href="#">st joseph</a></li>
+	<li><a href="#">st louis</a></li>
+	
+	<br>
+	<h4>Montana</h4>
+	<li><a href="#">billings</a></li>
+	<li><a href="#">bozeman</a></li>
+	<li><a href="#">butte</a></li>
+	<li><a href="#">great falls</a></li>
+	<li><a href="#">helena</a></li>
+	<li><a href="#">kalispell</a></li>
+	<li><a href="#">missoula</a></li>
+	<li><a href="#">eastern montana</a></li>
+	
+	<br>
+	<h4>Nebraska</h4>
+	<li><a href="#">grand island</a></li>
+	<li><a href="#">lincoln</a></li>
+	<li><a href="#">north platte</a></li>
+	<li><a href="#">omaha / council bluffs</a></li>
+	<li><a href="#">scottsbluff / panhandle</a></li>
+	
+	<br>
+	<h4>Nevada</h4>
+	<li><a href="#">elko</a></li>
+	<li><a href="#">las vegas</a></li>
+	<li><a href="#">reno / tahoe</a></li>
+	
+	<br>
+	<h4>New Hampshire</h4>
+	<li><a href="#">new hampshire</a></li>
+	
+	<br>
+	<h4>New Jersey</h4>
+	<li><a href="#">central NJ</a></li>
+	<li><a href="#">jersey shore</a></li>
+	<li><a href="#">north jersey</a></li>
+	<li><a href="#">south jersey</a></li>
+	
+	<br>
+	<h4>New Mexico</h4>
+	<li><a href="#">albuquerque</a></li>
+	<li><a href="#">clovis / portales</a></li>
+	<li><a href="#">farmington</a></li>
+	<li><a href="#">las cruces</a></li>
+	<li><a href="#">roswell / carlsbad</a></li>
+	<li><a href="#">santa fe / taos</a></li>
+	
+	<br>
+	<h4>New York</h4>
+	<li><a href="#">albany</a></li>
+	<li><a href="#">binghamton</a></li>
+	<li><a href="#">buffalo</a></li>
+	<li><a href="#">catskills</a></li>
+	<li><a href="#">chautauqua</a></li>
+	<li><a href="#">elmira-corning</a></li>
+	<li><a href="#">finger lakes</a></li>
+	<li><a href="#">glens falls</a></li>
+	<li><a href="#">hudson valley</a></li>
+	<li><a href="#">ithaca</a></li>
+	<li><a href="#">long island</a></li>
+	<li><a href="newyork">new york city</a></li>
+	<li><a href="#">oneonta</a></li>
+	<li><a href="#">plattsburgh-adirondacks</a></li>
+	<li><a href="#">potsdam-canton-massena</a></li>
+	<li><a href="#">rochester</a></li>
+	<li><a href="#">syracuse</a></li>
+	<li><a href="#">twin tiers NY/PA</a></li>
+	<li><a href="#">utica-rome-oneida</a></li>
+	<li><a href="#">watertown</a></li>
+	
+	<br>
+	<h4>North Carolina</h4>
+	<li><a href="#">asheville</a></li>
+	<li><a href="#">boone</a></li>
+	<li><a href="#">charlotte</a></li>
+	<li><a href="#">eastern NC</a></li>
+	<li><a href="#">fayetteville</a></li>
+	<li><a href="#">greensboro</a></li>
+	<li><a href="#">hickory / lenoir</a></li>
+	<li><a href="#">jacksonville </a></li>
+	<li><a href="#">outer banks</a></li>
+	<li><a href="#">raleigh / durham / CH</a></li>
+	<li><a href="#">wilmington</a></li>
+	<li><a href="#">winston-salem</a></li>
+									</div>
+	
+								<div class="col-sm-4">
+							
+	<h4>North Dakota</h4>
+	<li><a href="#">bismarck</a></li>
+	<li><a href="#">fargo / moorhead</a></li>
+	<li><a href="#">grand forks</a></li>
+	<li><a href="#">north dakota</a></li>	
+
+	<br>
+	<h4>Ohio</h4>
+	<li><a href="#">akron / canton</a></li>
+	<li><a href="#">ashtabula</a></li>
+	<li><a href="#">athens </a></li>
+	<li><a href="#">chillicothe</a></li>
+	<li><a href="#">cincinnati</a></li>
+	<li><a href="#">cleveland</a></li>
+	<li><a href="#">columbus</a></li>
+	<li><a href="#">dayton / springfield</a></li>
+	<li><a href="#">lima / findlay</a></li>
+	<li><a href="#">mansfield</a></li>
+	<li><a href="#">sandusky</a></li>
+	<li><a href="#">toledo</a></li>
+	<li><a href="#">tuscarawas co</a></li>
+	<li><a href="#">youngstown</a></li>
+	<li><a href="#">zanesville / cambridge</a></li>
+	
+	<br>
+	<h4>Oklahoma</h4>
+	<li><a href="#">lawton</a></li>
+	<li><a href="#">northwest OK</a></li>
+	<li><a href="#">oklahoma city</a></li>
+	<li><a href="#">stillwater</a></li>
+	<li><a href="#">tulsa</a></li>
+	
+	<br>
+	<h4>Oregon</h4>
+	<li><a href="#">bend</a></li>
+	<li><a href="#">corvallis/albany</a></li>
+	<li><a href="#">east oregon</a></li>
+	<li><a href="#">eugene</a></li>
+	<li><a href="#">klamath falls</a></li>
+	<li><a href="#">medford-ashland</a></li>
+	<li><a href="#">oregon coast</a></li>
+	<li><a href="#">portland</a></li>
+	<li><a href="#">roseburg</a></li>
+	<li><a href="#">salem</a></li>
+	
+	<br>
+	<h4>Pennsylvania</h4>
+	<li><a href="#">altoona-johnstown</a></li>
+	<li><a href="#">cumberland valley</a></li>
+	<li><a href="#">erie</a></li>
+	<li><a href="#">harrisburg</a></li>
+	<li><a href="#">lancaster</a></li>
+	<li><a href="#">lehigh valley</a></li>
+	<li><a href="#">meadville</a></li>
+	<li><a href="#">philadelphia</a></li>
+	<li><a href="#">pittsburgh</a></li>
+	<li><a href="#">poconos</a></li>
+	<li><a href="#">reading</a></li>
+	<li><a href="#">scranton / wilkes-barre</a></li>
+	<li><a href="#">state college</a></li>
+	<li><a href="#">williamsport</a></li>
+	<li><a href="#">york</a></li>
+	
+	<br>
+	<h4>Rhode Island</h4>
+	<li><a href="#">rhode island</a></li>
+	
+	<br>
+	<h4>South Carolina</h4>
+	<li><a href="#">charleston</a></li>
+	<li><a href="#">columbia</a></li>
+	<li><a href="#">florence</a></li>
+	<li><a href="#">greenville / upstate</a></li>
+	<li><a href="#">hilton head</a></li>
+	<li><a href="#">myrtle beach</a></li>
+	
+	<br>
+	<h4>South Dakota</h4>
+	<li><a href="#">northeast SD</a></li>
+	<li><a href="#">pierre / central SD</a></li>
+	<li><a href="#">rapid city / west SD</a></li>
+	<li><a href="#">sioux falls / SE SD</a></li>
+	<li><a href="#">south dakota</a></li>
+	
+	<br>
+	<h4>Tennessee</h4>
+	<li><a href="#">chattanooga</a></li>
+	<li><a href="#">clarksville</a></li>
+	<li><a href="#">cookeville</a></li>
+	<li><a href="#">jackson </a></li>
+	<li><a href="#">knoxville</a></li>
+	<li><a href="#">memphis</a></li>
+	<li><a href="#">nashville</a></li>
+	<li><a href="#">tri-cities</a></li>
+	
+	<br>
+	<h4>Texas</h4>
+	<li><a href="abilene">abilene</a></li>
+	<li><a href="amarillo">amarillo</a></li>
+	<li><a href="austin">austin</a></li>
+	<li><a href="#">beaumont / port arthur</a></li>
+	<li><a href="brownsville">brownsville</a></li>
+	<li><a href="#">college station</a></li>
+	<li><a href="corpuschristi">corpus christi</a></li>
+	<li><a href="dallas">dallas / fort worth</a></li>
+	<li><a href="#">deep east texas</a></li>
+	<li><a href="#">del rio / eagle pass</a></li>
+	<li><a href="elpaso">el paso</a></li>
+	<li><a href="galveston">galveston</a></li>
+	<li><a href="houston">houston</a></li>
+	<li><a href="#">killeen / temple / ft hood</a></li>
+	<li><a href="laredo">laredo</a></li>
+	<li><a href="#">lubbock</a></li>
+	<li><a href="#">mcallen / edinburg</a></li>
+	<li><a href="#">odessa / midland</a></li>
+	<li><a href="#">san angelo</a></li>
+	<li><a href="sanantonio">san antonio</a></li>
+	<li><a href="sanmarcos">san marcos</a></li>
+	<li><a href="#">southwest TX</a></li>
+	<li><a href="#">texoma</a></li>
+	<li><a href="#">tyler / east TX</a></li>
+	<li><a href="#">victoria </a></li>
+	<li><a href="waco">waco</a></li>
+	<li><a href="wichitafalls">wichita falls</a></li>
+	
+	<br>
+	<h4>Utah</h4>
+	<li><a href="logan">logan</a></li>
+	<li><a href="#">ogden-clearfield</a></li>
+	<li><a href="#">provo / orem</a></li>
+	<li><a href="saltlakecity">salt lake city</a></li>
+	<li><a href="#">st george</a></li>
+	
+	<br>
+	<h4>Vermont</h4>
+	<li><a href="#">vermont</a></li>
+	
+	<br>
+	<h4>Virginia</h4>
+	<li><a href="charlottesville">charlottesville</a></li>
+	<li><a href="danville">danville</a></li>
+	<li><a href="fredericksburg">fredericksburg</a></li>
+	<li><a href="#">hampton roads</a></li>
+	<li><a href="harrisonburg">harrisonburg</a></li>
+	<li><a href="lynchburg">lynchburg</a></li>
+	<li><a href="#">new river valley</a></li>
+	<li><a href="richmond">richmond</a></li>
+	<li><a href="roanoke">roanoke</a></li>
+	<li><a href="#">southwest VA</a></li>
+	<li><a href="winchester">winchester</a></li>
+	
+	<br>
+	<h4>Washington</h4>
+	<li><a href="bellingham">bellingham</a></li>
+	<li><a href="#">kennewick-pasco-richland</a></li>
+	<li><a href="#">moses lake</a></li>
+	<li><a href="#">olympic peninsula</a></li>
+	<li><a href="#">pullman / moscow</a></li>
+	<li><a href="#">seattle-tacoma</a></li>
+	<li><a href="#">skagit / island / SJI</a></li>
+	<li><a href="#">spokane / coeur d'alene</a></li>
+	<li><a href="wenatchee">wenatchee</a></li>
+	<li><a href="yakima">yakima</a></li>
+	
+	<br>
+	<h4>West Virginia</h4>
+	<li><a href="charelston">charleston </a></li>
+	<li><a href="#">eastern panhandle</a></li>
+	<li><a href="#">huntington-ashland</a></li>
+	<li><a href="morgantown">morgantown</a></li>
+	<li><a href="#">northern panhandle</a></li>
+	<li><a href="#">parkersburg-marietta</a></li>
+	<li><a href="#">southern WV</a></li>
+	<li><a href="#">west virginia (old)</a></li>
+	
+	<br>
+	<h4>Wisconsin</h4>
+	<li><a href="#">appleton-oshkosh-FDL</a></li>
+	<li><a href="#">eau claire</a></li>
+	<li><a href="#">green bay</a></li>
+	<li><a href="janesville">janesville</a></li>
+	<li><a href="#">kenosha-racine</a></li>
+	<li><a href="#">la crosse</a></li>
+	<li><a href="madison">madison</a></li>
+	<li><a href="milwaukee">milwaukee</a></li>
+	<li><a href="#">northern WI</a></li>
+	<li><a href="#">sheboygan</a></li>
+	<li><a href="wausau">wausau</a></li>
+	
+	<br>
+	<h4>Wyoming</h4>
+	<li><a href="#">wyoming</a></li>
+									</div>
+                                      
+                                    </ul>
+                                </div>
+                              
+                                
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="cat-list">
+                                    <h3 style="text-align:center;" ><a aria-controls="collapseTwo" aria-expanded="false" href="#collapseTwo"
+                                       data-parent="#accordion" data-toggle="collapse" class="collapsed"> Europe </a>
+                                        
+                                    </h3>
+                                    <ul aria-labelledby="headingTwo" role="tabpanel" class="panel-collapse collapse"
+                                 id="collapseTwo">
+                                        <div class="col-sm-4">
+	 <h4>Austria</h4>
+	<li><a href="vienna">vienna</a></li>
+	
+	<br>
+	<h4>Belgium</h4>
+	<li><a href="belgium">belgium</a></li>
+	
+	<br>
+	<h4>Bulgaria</h4>
+	<li><a href="bulgaria">bulgaria</a></li>
+	
+	<br>
+	<h4>Croatia</h4>
+	<li><a href="croatia">croatia</a></li>
+	
+	<br>
+	<h4>Czech Republic</h4>
+	<li><a href="#">prague</a></li>
+	
+	<br>
+	<h4>Denmark</h4>
+
+	<li><a href="#">copenhagen</a></li>
+	
+	<br>
+	<h4>Finland</h4>
+
+	<li><a href="#">finland</a></li>
+	
+	<br>
+	<h4>France</h4>
+
+	<li><a href="#">bordeaux</a></li>
+	<li><a href="#">brittany</a></li>
+	<li><a href="#">grenoble</a></li>
+	<li><a href="#">lille</a></li>
+	<li><a href="#">loire valley</a></li>
+	<li><a href="#">lyon</a></li>
+	<li><a href="#">marseille</a></li>
+	<li><a href="#">montpellier</a></li>
+	<li><a href="#">nice / cote d'azur</a></li>
+	<li><a href="#">normandy</a></li>
+	<li><a href="#">paris</a></li>
+	<li><a href="#">strasbourg</a></li>
+	<li><a href="#">toulouse</a></li>
+	
+	<br>
+	<h4>Germany</h4>
+	<li><a href="#">berlin</a></li>
+	<li><a href="#">bremen</a></li>
+	<li><a href="#">cologne</a></li>
+	<li><a href="#">dresden</a></li>
+	<li><a href="#">dusseldorf</a></li>
+	<li><a href="#">essen / ruhr</a></li>
+	<li><a href="#">frankfurt</a></li>
+	<li><a href="#">hamburg</a></li>
+	<li><a href="#">hannover</a></li>
+	<li><a href="#">heidelberg</a></li>
+	<li><a href="#">kaiserslautern</a></li>
+	<li><a href="#">leipzig</a></li>
+	<li><a href="#">munich</a></li>
+	<li><a href="#">nuremberg</a></li>
+	<li><a href="#">stuttgart</a></li>
+										</div>
+									<div class="col-sm-4">
+									
+	<h4>Greece</h4>
+
+	<li><a href="#">greece</a></li>
+
+	<br>
+	<h4>Hungary</h4>
+
+	<li><a href="#">budapest</a></li>
+	
+	<br>
+	<h4>Iceland</h4>
+	
+	<li><a href="#">reykjavik</a></li>
+	
+	<br>
+	<h4>Ireland</h4>
+	
+	<li><a href="#">dublin</a></li>
+	
+	<br>
+	<h4>Italy</h4>
+	
+	<li><a href="#">bologna</a></li>
+	<li><a href="#">florence / tuscany</a></li>
+	<li><a href="#">genoa</a></li>
+	<li><a href="#">milan</a></li>
+	<li><a href="#">napoli / campania</a></li>
+	<li><a href="#">perugia</a></li>
+	<li><a href="#">rome</a></li>
+	<li><a href="#">sardinia</a></li>
+	<li><a href="#">sicilia</a></li>
+	<li><a href="#">torino</a></li>
+	<li><a href="#">venice / veneto</a></li>
+	
+	<br>
+	<h4>Luxembourg</h4>
+
+	<li><a href="#">luxembourg</a></li>
+	
+	<br>
+	<h4>Netherlands</h4>
+	
+	<li><a href="#">amsterdam / randstad</a></li>
+	
+	<br>
+	<h4>Norway</h4>
+	
+	<li><a href="#">norway</a></li>
+	
+	<br>
+	<h4>Poland</h4>
+	
+	<li><a href="#">poland</a></li>
+	
+	<br>
+	<h4>Portugal</h4>
+
+	<li><a href="#">faro / algarve</a></li>
+	<li><a href="#">lisbon</a></li>
+	<li><a href="#">porto</a></li>
+	
+	<br>
+	<h4>Romania</h4>
+	
+	<li><a href="#">romania</a></li>	
+
+	<br>
+	<h4>Russian Federation</h4>
+	<li><a href="#">moscow</a></li>
+	<li><a href="#">st petersburg</a></li>
+									</div>
+									<div class="col-sm-4">
+	<h4>Spain</h4>
+
+	<li><a href="#">alicante</a></li>
+	<li><a href="#">baleares</a></li>
+	<li><a href="#">barcelona</a></li>
+	<li><a href="#">bilbao</a></li>
+	<li><a href="#">cadiz</a></li>
+	<li><a href="#">canarias</a></li>
+	<li><a href="#">granada</a></li>
+	<li><a href="#">madrid</a></li>
+	<li><a href="#">malaga</a></li>
+	<li><a href="#">sevilla</a></li>
+	<li><a href="#">valencia</a></li>
+	
+	<br>
+	<h4>Sweden</h4>
+	
+	<li><a href="#">sweden</a></li>
+	
+	<br>
+	<h4>Switzerland</h4>
+	
+	<li><a href="#">basel</a></li>
+	<li><a href="#">bern</a></li>
+	<li><a href="#">geneva</a></li>
+	<li><a href="#">lausanne</a></li>
+	<li><a href="#">zurich</a></li>
+	
+	<br>
+	<h4>Turkey</h4>
+	
+	<li><a href="#">turkey</a></li>
+	
+	<br>
+	<h4>Ukraine</h4>
+	
+	<li><a href="#">ukraine</a></li>
+	
+	<br>
+	<h4>United Kingdom</h4>
+	
+	<li><a href="#">aberdeen</a></li>
+	<li><a href="#">bath</a></li>
+	<li><a href="#">belfast</a></li>
+	<li><a href="#">birmingham / west mids</a></li>
+	<li><a href="#">brighton</a></li>
+	<li><a href="#">bristol</a></li>
+	<li><a href="#">cambridge, UK</a></li>
+	<li><a href="#">cardiff / wales</a></li>
+	<li><a href="#">coventry</a></li>
+	<li><a href="#">derby</a></li>
+	<li><a href="#">devon &amp; cornwall</a></li>
+	<li><a href="#">dundee</a></li>
+	<li><a href="#">east anglia</a></li>
+	<li><a href="#">east midlands</a></li>
+	<li><a href="#">edinburgh</a></li>
+	<li><a href="#">essex</a></li>
+	<li><a href="#">glasgow</a></li>
+	<li><a href="#">hampshire</a></li>
+	<li><a href="#">kent</a></li>
+	<li><a href="#">leeds</a></li>
+	<li><a href="#">liverpool</a></li>
+	<li><a href="#">london</a></li>
+	<li><a href="#">manchester</a></li>
+	<li><a href="#">newcastle / NE england</a></li>
+	<li><a href="#">nottingham</a></li>
+	<li><a href="#">oxford</a></li>
+	<li><a href="#">sheffield</a></li>								
+									
+									</div>
+                                    </ul>
+                                </div>
+						<div style="clear:both">
+                  
+                </div>		
+                                <div class="cat-list">
+                                    <h3  style="text-align:center;"> <a aria-controls="collapseThree" aria-expanded="false" href="#collapseThree"
+                                       data-parent="#accordion" data-toggle="collapse" class="collapsed">Asia, Pacific, and Middle East  </a> 
+                                    </h3>
+                                    <ul aria-labelledby="headingThree" role="tabpanel" class="panel-collapse collapse"
+                                 id="collapseThree">
+                                        <div class="col-sm-4">
+<h4>Bahrain</h4>
+
+	<li><a href="#">Manama</a></li>										
+<br>										
+<h4>Bangladesh</h4>
+
+	<li><a href="#">bangladesh</a></li>
+	
+	<br>
+	<h4>China</h4>
+
+	<li><a href="#">beijing</a></li>
+	<li><a href="#">chengdu</a></li>
+	<li><a href="#">chongqing</a></li>
+	<li><a href="#">dalian</a></li>
+	<li><a href="#">guangzhou</a></li>
+	<li><a href="#">hangzhou</a></li>
+	<li><a href="#">nanjing</a></li>
+	<li><a href="#">shanghai</a></li>
+	<li><a href="#">shenyang</a></li>
+	<li><a href="#">shenzhen</a></li>
+	<li><a href="#">wuhan</a></li>
+	<li><a href="#">xi'an</a></li>
+	
+	<br>
+	<h4>Guam / Micronesia</h4>
+
+	<li><a href="#">guam-micronesia</a></li>
+	
+	<br>
+	<h4>Hong Kong</h4>
+
+	<li><a href="#">hong kong</a></li>
+	
+	<br>
+	<h4>India</h4>
+	
+	<li><a href="#">ahmedabad</a></li>
+	<li><a href="#">bangalore</a></li>
+	<li><a href="#">bhubaneswar</a></li>
+	<li><a href="#">chandigarh</a></li>
+	<li><a href="#">chennai (madras)</a></li>
+	<li><a href="#">delhi</a></li>
+	<li><a href="#">goa</a></li>
+	<li><a href="#">hyderabad</a></li>
+	<li><a href="#">indore</a></li>
+	<li><a href="#">jaipur</a></li>
+	<li><a href="#">kerala</a></li>
+	<li><a href="#">kolkata (calcutta)</a></li>
+	<li><a href="#">lucknow</a></li>
+	<li><a href="#">mumbai</a></li>
+	<li><a href="#">pune</a></li>
+	<li><a href="#">surat surat</a></li>										
+										</div>
+									<div class="col-sm-4">
+	<h4>Indonesia</h4>
+
+	<li><a href="#">indonesia</a></li>
+	
+	<br>
+	<h4>Iran</h4>
+	
+	<li><a href="#">iran</a></li>
+	<br>
+	<h4>Iraq</h4>
+	<li><a href="#">iraq</a></li>
+	
+	<br>
+	<h4>Japan</h4>
+
+	<li><a href="#">fukuoka</a></li>
+	<li><a href="#">hiroshima</a></li>
+	<li><a href="#">nagoya</a></li>
+	<li><a href="#">okinawa</a></li>
+	<li><a href="#">osaka-kobe-kyoto</a></li>
+	<li><a href="#">sapporo</a></li>
+	<li><a href="#">sendai</a></li>
+	<li><a href="#">tokyo</a></li>
+	
+	<br>
+	<h4>Korea</h4>
+	
+	<li><a href="#">seoul</a></li>
+	
+	<br>
+	<h4>Kuwait</h4>
+	
+	<li><a href="#">kuwait</a></li>
+	
+	<br>
+	<h4>Lebanon</h4>
+	
+	<li><a href="#">beirut, lebanon</a></li>
+	
+	<br>
+	<h4>Malaysia</h4>
+	
+	<li><a href="#">malaysia</a></li>								
+									</div>
+									<div class="col-sm-4">
+									
+	<h4>Philippines</h4>
+
+	<li><a href="#">bacolod</a></li>
+	<li><a href="#">bicol region</a></li>
+	<li><a href="#">cagayan de oro</a></li>
+	<li><a href="#">cebu</a></li>
+	<li><a href="#">davao city</a></li>
+	<li><a href="#">iloilo</a></li>
+	<li><a href="#">manila</a></li>
+	<li><a href="#">pampanga</a></li>
+	<li><a href="#">zamboanga</a></li>
+	
+	<br>
+	<h4>Singapore</h4>
+	
+	<li><a href="#">singapore</a></li>
+	
+	<br>
+	<h4>Taiwan</h4>
+
+	<li><a href="#">taiwan</a></li>
+	
+	<br>
+	<h4>Thailand</h4>
+
+	<li><a href="#">thailand</a></li>
+	
+	<br>
+	<h4>Vietnam</h4>
+	
+	<li><a href="#">vietnam</a></li>								
+									</div>
+                                    </ul>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-4 col-sm-4   last-column">
+                                <div class="cat-list">
+                                    <h3  style="text-align:center;"> <a aria-controls="collapse_04" aria-expanded="false" href="#collapse_04"
+                                       data-parent="#accordion" data-toggle="collapse" class="collapsed"> Canada </a>   
+                                    </h3>
+                                    <ul aria-labelledby="heading_04" role="tabpanel" class="panel-collapse collapse"
+                                 id="collapse_04">
+                                       <div class="col-sm-4">
+ <h4>Alberta</h4>
+
+	<li><a href="#">calgary</a></li>
+	<li><a href="#">edmonton</a></li>
+	<li><a href="#">ft mcmurray</a></li>
+	<li><a href="#">lethbridge</a></li>
+	<li><a href="#">medicine hat</a></li>
+	<li><a href="#">peace river country</a></li>
+	<li><a href="#">red deer</a></li>
+	
+	<br>
+	<h4>British Columbia</h4>
+	
+	<li><a href="#">cariboo</a></li>
+	<li><a href="#">comox valley</a></li>
+	<li><a href="#">fraser valley</a></li>
+	<li><a href="#">kamloops</a></li>
+	<li><a href="#">kelowna / okanagan</a></li>
+	<li><a href="#">kootenays</a></li>
+	<li><a href="#">nanaimo</a></li>
+	<li><a href="#">prince george</a></li>
+	<li><a href="#">skeena-bulkley</a></li>
+	<li><a href="#">sunshine coast</a></li>
+	<li><a href="#">vancouver</a></li>
+	<li><a href="#">victoria</a></li>
+	<li><a href="#">whistler</a></li>
+
+	<br>
+	<h4>Manitoba</h4>
+
+	<li><a href="#">winnipeg</a></li>
+	<br>
+	<h4>New Brunswick</h4>
+
+	<li><a href="#">new brunswick</a></li>									   
+									   </div>
+									<div class="col-sm-4">
+	<h4>Newfoundland and Labrador</h4>
+
+	<li><a href="#">st john's</a></li>
+	
+	<br>
+	<h4>Northwest Territories</h4>
+
+	<li><a href="#">territories</a></li>
+	<li><a href="#">yellowknife</a></li>
+	
+	<br>
+	<h4>Nova Scotia</h4>
+
+	<li><a href="#">halifax</a></li>
+	
+	<br>
+	<h4>Ontario</h4>
+
+	<li><a href="#">barrie</a></li>
+	<li><a href="#">belleville</a></li>
+	<li><a href="#">brantford-woodstock</a></li>
+	<li><a href="#">chatham-kent</a></li>
+	<li><a href="#">cornwall</a></li>
+	<li><a href="#">guelph</a></li>
+	<li><a href="#">hamilton-burlington</a></li>
+	<li><a href="#">kingston</a></li>
+	<li><a href="#">kitchener-waterloo-cambridge</a></li>
+	<li><a href="#">london </a></li>
+	<li><a href="#">niagara region</a></li>
+	<li><a href="#">ottawa-hull-gatineau</a></li>
+	<li><a href="#">owen sound</a></li>
+	<li><a href="#">peterborough</a></li>
+	<li><a href="#">sarnia</a></li>
+	<li><a href="#">sault ste marie</a></li>
+	<li><a href="#">sudbury</a></li>
+	<li><a href="#">thunder bay</a></li>
+	<li><a href="#">toronto</a></li>
+	<li><a href="#">windsor</a></li>								
+									</div>
+									<div class="col-sm-4">
+	<h4>Prince Edward Island</h4>
+
+	<li><a href="#">prince edward island</a></li>
+
+	<br>
+	<h4>Quebec</h4>
+
+	<li><a href="#">montreal</a></li>
+	<li><a href="#">quebec city</a></li>
+	<li><a href="#">saguenay</a></li>
+	<li><a href="#">sherbrooke</a></li>
+	<li><a href="#">trois-rivieres</a></li>
+	
+	<br>
+	<h4>Saskatchewan</h4>
+	
+	<li><a href="#">regina</a></li>
+	<li><a href="#">saskatoon</a></li>
+	
+	<br>
+	<h4>Yukon Territory</h4>
+
+	<li><a href="#">whitehorse</a></li>								
+									</div>
+                                    </ul>
+                                </div>
+				<div style="clear:both">
+                 
+                </div>
+                                <div class="cat-list ">
+                                    <h3  style="text-align:center;"><a aria-controls="collapse_05" aria-expanded="false" href="#collapse_05"
+                                       data-parent="#accordion" data-toggle="collapse" class="collapsed"> Latin America and Caribbean </a> 
+                                    </h3>
+                                    <ul aria-labelledby="heading_05" role="tabpanel" class="panel-collapse collapse"
+                                 id="collapse_05">
+                                        <div class="col-sm-4">
+	  <h4>Argentina</h4>
+
+	<li><a href="#">buenos aires</a></li>
+	
+	<br>
+	<h4>Bolivia</h4>
+
+	<li><a href="#">bolivia</a></li>
+	
+	<br>
+	<h4>Brazil</h4>
+	
+	<li><a href="#">belo horizonte</a></li>
+	<li><a href="#">brasilia</a></li>
+	<li><a href="#">curitiba</a></li>
+	<li><a href="#">fortaleza</a></li>
+	<li><a href="#">porto alegre</a></li>
+	<li><a href="#">recife</a></li>
+	<li><a href="#">rio de janeiro</a></li>
+	<li><a href="#">salvador, bahia</a></li>
+	<li><a href="#">sao paulo</a></li>
+	
+	<br>
+	<h4>Caribbean Islands</h4>
+	<ul>
+	<li><a href="#">caribbean islands</a></li>									
+										</div>
+									<div class="col-sm-4">
+	<h4>Chile</h4>
+	
+	<li><a href="#">chile</a></li>
+	<br>
+	<h4>Colombia</h4>
+	
+	<li><a href="#">colombia</a></li>
+	<br>
+	<h4>Costa Rica</h4>
+	
+	<li><a href="#">costa rica</a></li>
+<br>
+	<h4>Dominican Republic</h4>
+	
+	<li><a href="#">dominican republic</a></li>
+	<br>
+	<h4>Ecuador</h4>
+	
+	<li><a href="#">ecuador</a></li>
+	<br>
+	<h4>El Salvador</h4>
+	
+	<li><a href="#">el salvador</a></li>
+<br>
+	<h4>Guatemala</h4>
+
+	<li><a href="#">guatemala</a></li>								
+									</div>
+									<div class="col-sm-4">
+	<h4>Mexico</h4>
+	
+	<li><a href="#">acapulco</a></li>
+	<li><a href="#">baja california sur</a></li>
+	<li><a href="#">chihuahua</a></li>
+	<li><a href="#">ciudad juarez</a></li>
+	<li><a href="#">guadalajara</a></li>
+	<li><a href="#">guanajuato</a></li>
+	<li><a href="#">hermosillo</a></li>
+	<li><a href="#">mazatlan</a></li>
+	<li><a href="#">mexico city</a></li>
+	<li><a href="#">monterrey</a></li>
+	<li><a href="#">oaxaca</a></li>
+	<li><a href="#">puebla</a></li>
+	<li><a href="#">puerto vallarta</a></li>
+	<li><a href="#">tijuana</a></li>
+	<li><a href="#">veracruz</a></li>
+	<li><a href="#">yucatan</a></li>
+	
+	<br>
+	<h4>Nicaragua</h4>
+	
+	<li><a href="#">nicaragua</a></li>
+	<br>
+	<h4>Panama</h4>
+
+	<li><a href="#">panama</a></li>
+	<br>
+	<h4>Peru</h4>
+	
+	<li><a href="#">peru</a></li>
+	<br>
+	<h4>Puerto Rico</h4>
+	
+	<li><a href="#">puerto rico</a></li>
+   <br>
+	<h4>Uruguay</h4>
+	
+	<li><a href="#">montevideo</a></li>
+	<br>
+	<h4>Venezuela</h4>
+
+	<li><a href="#">venezuela</a></li>
+	<br>
+	<h4>Virgin Islands, U.S.</h4>
+
+	<li><a href="#">virgin islands</a></li>								
+									</div>
+                                    </ul>
+                                </div>
+				<div style="clear:both">
+               
+                </div>
+								
+														 <div class="cat-list">
+                                    <h3  style="text-align:center;"><a aria-controls="collapse_06" aria-expanded="false" href="#collapse_06"
+                                       data-parent="#accordion" data-toggle="collapse" class="collapsed"> Africa </a>
+                                        <span data-target=".cat-id-6" data-toggle="collapse"
+                                              class="btn-cat-collapsed collapsed">  
+                                    </h3>
+                                    <ul aria-labelledby="heading_06" role="tabpanel" class="panel-collapse collapse"
+                                 id="collapse_06">
+                                       <div class="col-sm-4">
+	 <h4>Egypt</h4>
+	
+	<li><a href="#">egypt</a></li>
+	<br>
+	<h4>Ethiopia</h4>
+	
+	<li><a href="#">ethiopia</a></li>
+	<br>
+	<h4>Ghana</h4>			
+	<li><a href="#">ghana</a></li>
+	
+	
+									   </div>
+									<div class="col-sm-4">
+	<h4>Kenya</h4>
+	
+	<li><a href="#">kenya</a></li>
+	<br>
+	<h4>Morocco</h4>
+
+	<li><a href="#">morocco</a></li>
+	
+	<br>
+	<h4>South Africa</h4>
+
+	<li><a href="#">cape town</a></li>
+	<li><a href="#">durban</a></li>
+	<li><a href="#">johannesburg</a></li>
+	<li><a href="#">pretoria</a></li>								
+									
+									</div>
+									<div class="col-sm-4">
+	<h4>Tunisia</h4>
+
+	<li><a href="#">tunisia</a></li>
+							
+									</div>
+                                    </ul>
+                                </div>	
+				<div style="clear:both">
+
+                </div>				
+				<div class="cat-list ">
+                                    <h3 style="text-align:center;" > <a aria-controls="collapse_07" aria-expanded="false" href="#collapse_07"
+                                       data-parent="#accordion" data-toggle="collapse" class="collapsed"> Australia and Oceania  </a> 
+                                    </h3>
+                                    <ul aria-labelledby="heading_07" role="tabpanel" class="panel-collapse collapse"
+                                 id="collapse_07">
+                                        <div class="col-sm-4">
+										<h4>Austrailia</h4>
+										
+										<li><a href="#">Adelaide</a></li>
+										<li><a href="#">Brisbane</a></li>
+										<li><a href="#">Cairns</a></li>
+										<li><a href="#">Canberra</a></li>
+										<li><a href="#">Darwin</a></li>
+										<li><a href="#">Gold Coast</a></li>
+										<li><a href="#">Hobart</a></li>
+										<li><a href="#">Launceston</a></li>
+										<li><a href="#">Melbourne</a></li>
+										<li><a href="#">Newcastle</a></li>
+										<li><a href="#">Perth</a></li>
+										<li><a href="#">Sydney</a></li>
+								</div>
+									<div class="col-sm-4">
+									
+										<h4>Guam</h4>		
+									
+									<li><a href="#">Guam</a></li>
+									
+									</div>
+									
+									<div class="col-sm-4">
+									
+									<h4>New Zealand</h4>	
+									
+									<li><a href="#">Aukland</a></li>
+									<li><a href="#">Christchurch</a></li>
+									<li><a href="#">Dunedin</a></li>
+									<li><a href="#">Hamilton</a></li>
+									<li><a href="#">Wellington</a></li>
+									
+									</div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    
+
+          </div>
+</div>
+</div>           
+               
+                  
+                
+           
+    
+    <!-- /.main-container -->
+<datalist id="cities">
+  <option value="HTML">
+  <option value="CSS">
+  <option value="JavaScript">
+  <option value="Java">
+  <option value="Ruby">
+  <option value="PHP">
+  <option value="Go">
+  <option value="Erlang">
+  <option value="Python">
+  <option value="C">
+  <option value="C#">
+  <option value="C++">
+</datalist>
+
+    
+
+
+        <div class="footer" id="footer">
+        <div class="container">
+            <ul class=" pull-left navbar-link footer-nav">
+                <li><a href="/"> Home </a> <a href="/about"> About us </a> <a href="/terms"> Terms and
+                    Conditions </a> <a href="/privacy"> Privacy Policy </a> <a href="/contact"> Contact us </a> <a
+                        href="/faq"> FAQ </a>
+            </ul>
+            <ul class=" pull-right navbar-link footer-nav">
+                <li> &copy; 2017 Bigworthy</li>
+            </ul>			
+        </div>
+    </div>
+
+
+      <!-- /.footer -->
+</div>
+<!-- /.wrapper -->
+
+<!-- Le javascript
+================================================== -->
+
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- include carousel slider plugin  -->
+<script src="/assets/js/owl.carousel.min.js"></script>
+
+<!-- include equal height plugin  -->
+<script src="/assets/js/jquery.matchHeight-min.js"></script>
+
+<!-- include jquery list shorting plugin plugin  -->
+<script src="/assets/js/hideMaxListItem.js"></script>
+
+<!-- include jquery.fs plugin for custom scroller and selecter  -->
+<script src="/assets/plugins/jquery.fs.scroller/jquery.fs.scroller.js"></script>
+<script src="/assets/plugins/jquery.fs.selecter/jquery.fs.selecter.js"></script>
+
+
+<!-- include custom script for site  -->
+<script src="/assets/js/script.js"></script>
+
+
+<!-- include jquery autocomplete plugin  -->
+
+<script type="text/javascript" src="/assets/plugins/autocomplete/jquery.mockjax.js"></script>
+<script type="text/javascript" src="/assets/plugins/autocomplete/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="/assets/plugins/autocomplete/usastates.js"></script>
+
+<script type="text/javascript" src="/assets/plugins/autocomplete/autocomplete-demo.js"></script>
+
+
+</body>
+</html>

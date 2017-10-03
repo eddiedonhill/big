@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0,
+              maximum-scale=1.0, minimum-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                <title>Session Page</title>
+                 <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- styles needed for carousel slider -->
+    <link href="assets/css/owl.carousel.css" rel="stylesheet">
+    <link href="assets/css/owl.theme.css" rel="stylesheet">
+</head>
+<body>
+    
+   
+    
+    {{if .First}}
+    Username {{.UserName}}<br>
+    First {{.First}}</br>
+    Last {{.Last}}<br>
+    {{end}}
+    
+    <form action="/" method="post">
+        <input type="text" name="username" placeholder="email">
+        <input type="text" name="first" placeholder="first name">
+        <input type="text" name="last" placeholder="last name">
+        <input type="submit">
+    </form>
+    
+    <a href="/post">post an ad</a>
+</body>
+            
+</html>

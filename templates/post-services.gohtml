@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <title>Bigworthy: Post services</title>
+    <!-- Bootstrap core CSS -->
+    <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- styles needed for carousel slider -->
+    <link href="assets/css/owl.carousel.css" rel="stylesheet">
+    <link href="assets/css/owl.theme.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- include pace script for automatic web page progress bar  -->
+<style type="text/css">
+
+select {
+    background-color: #F5F5F5;
+    border: 1px double #FB4314;
+    color: #55BB91;
+    font-family: Georgia;
+    font-weight: bold;
+    font-size: 14px;
+    height: 39px;
+    padding: 7px 8px;
+    width: 200px;
+    outline: none;
+    margin: 10px 0 10px 0;
+}
+select option{
+    font-family: Georgia;
+    font-size: 14px;
+}
+</style>
+    <script>
+        paceOptions = {
+            elements: true
+        };
+    </script>
+    <script src="assets/js/pace.min.js"></script>
+    <script>
+        paceOptions = {
+            elements: true
+        };
+    </script>
+    <script src="assets/js/pace.min.js"></script>
+	<script>
+      // This example displays an address form, using the autocomplete feature
+      // of the Google Places API to help users fill in the information.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      var placeSearch, autocomplete;
+      var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+
+      function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+
+        for (var component in componentForm) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+          }
+        }
+      }
+
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC65UFp8q9su3ITSsffqAzTO0LS410qnxQ&libraries=places&callback=initAutocomplete"
+        async defer></script>
+	<script src="jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#country').on('change',function(){
+        var countryID = $(this).val();
+        if(countryID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+                data:'country_id='+countryID,
+                success:function(html){
+                    $('#state').html(html);
+                    $('#city').html('<option value="">Select state first</option>'); 
+                }
+            }); 
+        }else{
+            $('#state').html('<option value="">Select country first</option>');
+            $('#city').html('<option value="">Select state first</option>'); 
+        }
+    });
+    
+    $('#state').on('change',function(){
+        var stateID = $(this).val();
+        if(stateID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',
+                data:'state_id='+stateID,
+                success:function(html){
+                    $('#city').html(html);
+                }
+            }); 
+        }else{
+            $('#city').html('<option value="">Select state first</option>'); 
+        }
+    });
+});
+</script>
+
+
+	
+</head>
+<body>
+<div id="wrapper">
+        <div class="header">
+        <nav class="navbar navbar-site navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
+                            class="icon-bar"></span> <span class="icon-bar"></span></button>
+                    <a href="https://bigworthy.com" class="navbar-brand logo logo-title">
+                        <!-- Original Logo will be placed here  -->
+						<span>Bigworthy </span> </a></div>
+                <div class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+                       
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span>eddiedonhill@gmail.com</span>  <i
+                                class=" icon-down-open-big fa"></i></a>
+                            <ul class="dropdown-menu user-menu">
+                               <li class="active"><a href="/account-home"><i class="icon-home"></i> Home
+                                </a></li>
+
+                                <li><a href="/account-postings"><i class="icon-th-thumb"></i> My posts </a></li>
+                                <li><a href="/account-favorites"><i class="fa fa-star"></i> Favorites </a>
+                                </li>
+                                <li><a href="/account-saved-search"><i class="icon-folder-close"></i> Saved search
+                                </a></li>
+                                <li><a href="/account-archive"><i class="fa fa-archive"></i> Archives
+                                </a></li>
+								<li><a href="/logout.php"><i class="icons icon-logout"></i> Logout
+                                </a></li>
+                              
+                                
+                            </ul>
+                        </li>
+                        <li class="postadd"><a class="btn btn-block   btn-border btn-post btn-danger"
+                                               href="/post">Post</a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
+    <!-- /.header -->
+    <div class="main-container">
+        <div class="container">
+		
+            <div class="row">
+			
+                <div class="col-md-9 page-content">				
+                    <div class="inner-box category-content">
+                         <h2 class="title-2 uppercase"><strong> <i class="icon-briefcase"></i> Services
+                            </strong></h2>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form action="" method="post" class="form-horizontal">
+                                          <fieldset>
+
+  	<input type="hidden" readonly value='eddiedonhill@gmail.com' name="email" />	
+	<div class="form-group">
+		<label class="col-md-3 control-label">Country</label>	
+	<div class="col-md-6">
+    <select name="country" id="country" required="required" class="form-control">
+        <option value="">Select Country</option>
+        <option value="2">Afghanistan</option><option value="5">Albania</option><option value="62">Algeria</option><option value="11">American Samoa</option><option value="6">Andorra</option><option value="3">Angola</option><option value="4">Anguilla</option><option value="12">Antarctica</option><option value="14">Antigua and Barbuda</option><option value="9">Argentina</option><option value="10">Armenia</option><option value="1">Aruba</option><option value="15">Australia</option><option value="16">Austria</option><option value="17">Azerbaijan</option><option value="25">Bahamas</option><option value="24">Bahrain</option><option value="22">Bangladesh</option><option value="32">Barbados</option><option value="27">Belarus</option><option value="19">Belgium</option><option value="28">Belize</option><option value="20">Benin</option><option value="29">Bermuda</option><option value="34">Bhutan</option><option value="30">Bolivia</option><option value="26">Bosnia and Herzegovina</option><option value="36">Botswana</option><option value="35">Bouvet Island</option><option value="31">Brazil</option><option value="101">British Indian Ocean Territory</option><option value="33">Brunei</option><option value="23">Bulgaria</option><option value="21">Burkina Faso</option><option value="18">Burundi</option><option value="114">Cambodia</option><option value="44">Cameroon</option><option value="38">Canada</option><option value="50">Cape Verde</option><option value="54">Cayman Islands</option><option value="43">Côte d’Ivoire</option><option value="37">Central African Republic</option><option value="206">Chad</option><option value="41">Chile</option><option value="42">China</option><option value="53">Christmas Island</option><option value="39">Cocos (Keeling) Islands</option><option value="48">Colombia</option><option value="49">Comoros</option><option value="46">Congo</option><option value="45">Congo, The Democratic Republic</option><option value="47">Cook Islands</option><option value="51">Costa Rica</option><option value="96">Croatia</option><option value="52">Cuba</option><option value="55">Cyprus</option><option value="56">Czech Republic</option><option value="60">Denmark</option><option value="58">Djibouti</option><option value="59">Dominica</option><option value="61">Dominican Republic</option><option value="212">East Timor</option><option value="63">Ecuador</option><option value="64">Egypt</option><option value="193">El Salvador</option><option value="85">Equatorial Guinea</option><option value="65">Eritrea</option><option value="68">Estonia</option><option value="69">Ethiopia</option><option value="72">Falkland Islands</option><option value="74">Faroe Islands</option><option value="71">Fiji Islands</option><option value="70">Finland</option><option value="73">France</option><option value="90">French Guiana</option><option value="178">French Polynesia</option><option value="13">French Southern territories</option><option value="76">Gabon</option><option value="83">Gambia</option><option value="78">Georgia</option><option value="57">Germany</option><option value="79">Ghana</option><option value="80">Gibraltar</option><option value="86">Greece</option><option value="88">Greenland</option><option value="87">Grenada</option><option value="82">Guadeloupe</option><option value="91">Guam</option><option value="89">Guatemala</option><option value="81">Guinea</option><option value="84">Guinea-Bissau</option><option value="92">Guyana</option><option value="97">Haiti</option><option value="94">Heard Island and McDonald Isla</option><option value="226">Holy See (Vatican City State)</option><option value="95">Honduras</option><option value="93">Hong Kong</option><option value="98">Hungary</option><option value="105">Iceland</option><option value="100">India</option><option value="99">Indonesia</option><option value="103">Iran</option><option value="104">Iraq</option><option value="102">Ireland</option><option value="106">Israel</option><option value="107">Italy</option><option value="108">Jamaica</option><option value="110">Japan</option><option value="109">Jordan</option><option value="111">Kazakstan</option><option value="112">Kenya</option><option value="115">Kiribati</option><option value="118">Kuwait</option><option value="113">Kyrgyzstan</option><option value="119">Laos</option><option value="129">Latvia</option><option value="120">Lebanon</option><option value="126">Lesotho</option><option value="121">Liberia</option><option value="122">Libyan Arab Jamahiriya</option><option value="124">Liechtenstein</option><option value="127">Lithuania</option><option value="128">Luxembourg</option><option value="130">Macao</option><option value="138">Macedonia</option><option value="134">Madagascar</option><option value="149">Malawi</option><option value="150">Malaysia</option><option value="135">Maldives</option><option value="139">Mali</option><option value="140">Malta</option><option value="137">Marshall Islands</option><option value="147">Martinique</option><option value="145">Mauritania</option><option value="148">Mauritius</option><option value="151">Mayotte</option><option value="136">Mexico</option><option value="75">Micronesia, Federated States o</option><option value="133">Moldova</option><option value="132">Monaco</option><option value="142">Mongolia</option><option value="146">Montserrat</option><option value="131">Morocco</option><option value="144">Mozambique</option><option value="141">Myanmar</option><option value="152">Namibia</option><option value="162">Nauru</option><option value="161">Nepal</option><option value="159">Netherlands</option><option value="7">Netherlands Antilles</option><option value="153">New Caledonia</option><option value="163">New Zealand</option><option value="157">Nicaragua</option><option value="154">Niger</option><option value="156">Nigeria</option><option value="158">Niue</option><option value="155">Norfolk Island</option><option value="174">North Korea</option><option value="143">Northern Mariana Islands</option><option value="160">Norway</option><option value="164">Oman</option><option value="165">Pakistan</option><option value="170">Palau</option><option value="177">Palestine</option><option value="166">Panama</option><option value="171">Papua New Guinea</option><option value="176">Paraguay</option><option value="168">Peru</option><option value="169">Philippines</option><option value="167">Pitcairn</option><option value="172">Poland</option><option value="175">Portugal</option><option value="173">Puerto Rico</option><option value="179">Qatar</option><option value="180">Réunion</option><option value="181">Romania</option><option value="182">Russian Federation</option><option value="183">Rwanda</option><option value="189">Saint Helena</option><option value="116">Saint Kitts and Nevis</option><option value="123">Saint Lucia</option><option value="196">Saint Pierre and Miquelon</option><option value="227">Saint Vincent and the Grenadin</option><option value="234">Samoa</option><option value="194">San Marino</option><option value="197">Sao Tome and Principe</option><option value="184">Saudi Arabia</option><option value="186">Senegal</option><option value="203">Seychelles</option><option value="192">Sierra Leone</option><option value="187">Singapore</option><option value="199">Slovakia</option><option value="200">Slovenia</option><option value="191">Solomon Islands</option><option value="195">Somalia</option><option value="237">South Africa</option><option value="188">South Georgia and the South Sa</option><option value="117">South Korea</option><option value="67">Spain</option><option value="125">Sri Lanka</option><option value="185">Sudan</option><option value="198">Suriname</option><option value="190">Svalbard and Jan Mayen</option><option value="202">Swaziland</option><option value="201">Sweden</option><option value="40">Switzerland</option><option value="204">Syria</option><option value="218">Taiwan</option><option value="209">Tajikistan</option><option value="219">Tanzania</option><option value="208">Thailand</option><option value="207">Togo</option><option value="210">Tokelau</option><option value="213">Tonga</option><option value="214">Trinidad and Tobago</option><option value="215">Tunisia</option><option value="216">Turkey</option><option value="211">Turkmenistan</option><option value="205">Turks and Caicos Islands</option><option value="217">Tuvalu</option><option value="220">Uganda</option><option value="221">Ukraine</option><option value="8">United Arab Emirates</option><option value="77">United Kingdom</option><option value="224">United States</option><option value="222">United States Minor Outlying I</option><option value="223">Uruguay</option><option value="225">Uzbekistan</option><option value="232">Vanuatu</option><option value="228">Venezuela</option><option value="231">Vietnam</option><option value="229">Virgin Islands, British</option><option value="230">Virgin Islands, U.S.</option><option value="233">Wallis and Futuna</option><option value="66">Western Sahara</option><option value="235">Yemen</option><option value="236">Yugoslavia</option><option value="238">Zambia</option><option value="239">Zimbabwe</option>    </select>
+    </div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-3 control-label">State / Region</label>	
+	<div class="col-md-6">
+    <select name="state" id="state" required="required" class="form-control">
+        <option value="">Select country first</option>
+    </select>
+	</div>
+	</div>
+    <div class="form-group">
+		<label class="col-md-3 control-label">City</label>	
+	<div class="col-md-6">
+    <select name="city" id="city" required="required" class="form-control">
+        <option value="">Select state first</option>
+    </select>
+    </div>
+	</div>
+	<input type="hidden" readonly value='services' name="post_type" />
+</br>                                    
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="jobTitle">Title</label>
+
+                                            <div class="col-md-8">
+                                                <input id="jobTitle" name="title" placeholder=""
+                                                       class="form-control input-md" required="" type="text">
+                                                <span class="help-block">A great title needs at least 30 characters. </span>
+                                            </div>
+                                        </div>
+										<!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="CompanyName">Company / Organization</label>
+
+                                            <div class="col-md-8">
+                                                <input id="CompanyName" name="company" placeholder=""
+                                                       class="form-control input-md" required="" type="text">
+                                            </div>
+                                        </div>
+										
+										
+                                        <!-- Select Basic -->
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Choose a Category</label>
+
+                                            <div class="col-md-8">
+                                                <select name="category" id="category-group" class="form-control">
+												 <option value="0" selected="selected"> Select a category...</option>
+                                                    <option value="automotive"> Automotive</option>
+                                        <option value="building"> Building, Home &amp; Removals</option>
+										<option value="childcare"> Childcare </a></option>
+										<option value="computers"> Computers & Technology</a></option>
+                                        <option value="entertainment"> Entertainment</a></option>
+										<option value="financial"> Financial</a></option>
+                                        <option value="health"> Health &amp; Beauty</a></option>
+										<option value="household"> Household</a></option>
+										<option value="legal"> Legal Services</a></option>   
+										<option value="lessons"> Lessons</a></option>
+                                        <option value="shipping"> Property &amp; Shipping</a></option>
+										<option value="realestate"> Real Estate</a></option>
+                                        <option value="tax"> Tax, Money &amp; Visas</a></option>
+										<option value="travel"> Travel Services &amp; Tours</a></option>
+                                        <option value="tuition"> Tuition &amp; Lessons</a></option>
+                                </ul>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <!-- Textarea -->
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="textarea">Description
+
+                                            </label>
+
+                                            <div class="col-md-8">
+
+                                                <textarea style="height: 250px" maxlength='500'class="form-control" id="textarea"
+                                                          name="details"></textarea>
+
+                                                <span class="help-block">Describe the services offered or desired. (Maximum of 500 Characters)</span>
+
+                                            </div>
+                                        </div>
+
+
+                                        <!-- Select Basic -->
+                                        
+
+
+                                        <!-- Multiple Radios (inline) -->
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label"> Type</label>
+
+                                            <div class="col-md-8">
+
+                                                <select class="form-control" name="adtype" id="type">
+                                                    <option selected="" value="FULLTIME" name="FULLTIME">Full-time
+                                                    </option>
+                                                    <option value="PARTTIME" name="PARTTIME">Part-time</option>
+                                                    <option value="TEMPORARY" name="TEMPORARY">Temporary</option>
+                                                    <option value="CONTRACT" name="CONTRACT">Contract</option>
+                                                    <option value="INTERNSHIP" name="INTERNSHIP">Internship</option>
+                                                    <option value="PERMANENT" name="PERMANENT">Permanent</option>
+                                                    <option value="Optional" name="Optional">Optional</option>
+                                                </select>
+
+
+                                            </div>
+                                        </div>
+
+
+                                        <!-- Prepended text-->
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="Salary ">Salary </label>
+
+                                            <div class="col-md-4">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">$</span>
+                                                    <input id="Salary " name="price" class="form-control"
+                                                            type="text">
+
+                                                 
+
+
+                                                        
+                                                    
+                                                  
+                                                </div>
+
+
+                                            </div>
+											
+                                            <div class="col-md-4">
+                                                <div class="checkbox">
+												    <select id="category-group" name="salary" class="form-control">
+                                                            <option value="hour">per hour</option>
+                                                            <option value="annual">Annual</option>
+                                                            <option value="contract">Contract</option>
+															<option value="negotiable">negotiable</option>
+															<option value="other">other</option>
+                                                        </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="content-subheading"><i class="icon-user fa"></i> <strong>Company
+                                            information</strong></div>
+
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="textinput-name">Address</label>
+
+                                            <div class="col-md-8">
+                                                <input type="text" id="autocomplete" placeholder=""
+             onFocus="geolocate()" name="searchlocation" class="form-control" aria-label="...">  
+                                            </div>
+                                        </div>
+
+                                        <!-- Appended checkbox -->
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="seller-email"> 
+                                                Email</label>
+
+                                            <div class="col-md-8">
+                                                <input id="Company-email" name="seller_name" class="form-control"
+                                                       placeholder="Email" required="" type="text">
+
+                                               
+                                            </div>
+                                        </div>
+
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" for="seller-Number">Phone
+                                                Number</label>
+
+                                            <div class="col-md-8">
+                                                <input id="seller-Number" name="phone"
+                                                       placeholder="Phone Number" class="form-control input-md"
+                                                       required="" type="text">
+                                            </div>
+                                        </div>
+
+
+                                    
+
+                                       
+
+                                        <!-- Button  -->
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label"></label>
+
+                                            <div class="col-md-8"><button type="submit" name="postservices" id="button1id"
+                                                                     class="btn btn-success btn-lg">Submit</button></div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.page-content -->
+
+                <div class="col-md-3 reg-sidebar">
+                    <div class="reg-sidebar-inner text-center">
+                        <div class="promo-text-box"><i class=" icon-picture fa fa-4x icon-color-1"></i>
+
+                            <h3><strong>Post a Free Classified</strong></h3>
+
+                           
+                        </div>
+
+                        <div class="panel sidebar-panel">
+                            <div class="panel-heading uppercase">
+                                <small><strong>How to sell quickly?</strong></small>
+                            </div>
+                            <div class="panel-content">
+                                <div class="panel-body text-left">
+                                    <ul class="list-check">
+                                        <li> Use a brief title and description of the item</li>
+                                        <li> Make sure you post in the correct category</li>
+                                        <li> Add nice photos to your ad</li>
+                                        <li> Put a reasonable price</li>
+                                        <li> Check the item before publish</li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <!--/.reg-sidebar-->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.main-container -->
+
+        <div class="footer" id="footer">
+        <div class="container">
+            <ul class=" pull-left navbar-link footer-nav">
+                <li><a href="https://bigworthy.com"> Home </a> <a href="/about"> About us </a> <a href="/terms"> Terms and
+                    Conditions </a> <a href="/privacy"> Privacy Policy </a> <a href="/contact"> Contact us </a> <a
+                        href="/faq"> FAQ </a>
+            </ul>
+            <ul class=" pull-right navbar-link footer-nav">
+                <li> &copy; 2017 Bigworthy</li>
+            </ul>			
+        </div>
+    </div>
+
+
+      <!--/.footer-->
+</div>
+<!-- /.wrapper -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    <script>
+    var selDiv = "";
+    var storedFiles = [];
+    
+    $(document).ready(function() {
+        $("#files").on("change", handleFileSelect);
+        
+        selDiv = $("#selectedFiles"); 
+        $("#myForm").on("submit", handleForm);
+        
+        $("body").on("click", ".selFile", removeFile);
+    });
+        
+    function handleFileSelect(e) {
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+        filesArr.forEach(function(f) {          
+
+            if(!f.type.match("image.*")) {
+                return;
+            }
+            storedFiles.push(f);
+            
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var html = "<div><img src=\"" + e.target.result + "\" data-file='"+f.name+"' class='selFile' title='Click to remove'>" + f.name + "<br clear=\"left\"/></div>";
+                selDiv.append(html);
+                
+            }
+            reader.readAsDataURL(f); 
+        });
+        
+    }
+        
+    function handleForm(e) {
+        e.preventDefault();
+        var data = new FormData();
+        
+        for(var i=0, len=storedFiles.length; i<len; i++) {
+            data.append('files', storedFiles[i]); 
+        }
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'handler.cfm', true);
+        
+        xhr.onload = function(e) {
+            if(this.status == 200) {
+                console.log(e.currentTarget.responseText);  
+                alert(e.currentTarget.responseText + ' items uploaded.');
+            }
+        }
+        
+        xhr.send(data);
+    }
+        
+    function removeFile(e) {
+        var file = $(this).data("file");
+        for(var i=0;i<storedFiles.length;i++) {
+            if(storedFiles[i].name === file) {
+                storedFiles.splice(i,1);
+                break;
+            }
+        }
+        $(this).parent().remove();
+    }
+    </script>
+<!-- Le javascript
+================================================== -->
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- include jquery file upload plugin  -->
+<script src="assets/js/fileinput.min.js" type="text/javascript"></script>
+<script>
+    // initialize with defaults
+    $("#input-upload-img1").fileinput();
+    $("#input-upload-img2").fileinput();
+    $("#input-upload-img3").fileinput();
+    $("#input-upload-img4").fileinput();
+    $("#input-upload-img5").fileinput();
+
+
+</script>
+
+<!-- include carousel slider plugin  -->
+<script src="assets/js/owl.carousel.min.js"></script>
+
+
+<!-- include equal height plugin  -->
+<script src="assets/js/jquery.matchHeight-min.js"></script>
+
+<!-- include jquery list shorting plugin plugin  -->
+<script src="assets/js/hideMaxListItem.js"></script>
+
+<!-- include jquery.fs plugin for custom scroller and selecter  -->
+<script src="assets/plugins/jquery.fs.scroller/jquery.fs.scroller.js"></script>
+<script src="assets/plugins/jquery.fs.selecter/jquery.fs.selecter.js"></script>
+<!-- include custom script for site  -->
+<script src="assets/js/script.js"></script>
+</body>
+</html>

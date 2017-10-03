@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <title>Bigworthy</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+
+    <!-- styles needed for carousel slider -->
+    <link href="../assets/css/owl.carousel.css" rel="stylesheet">
+    <link href="../assets/css/owl.theme.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  
+
+    <!-- include pace script for automatic web page progress bar  -->
+
+    <script>
+        paceOptions = {
+            elements: true
+        };
+    </script>
+    <script src="../assets/js/pace.min.js"></script>
+
+
+</head>
+<body>
+
+
+<div id="wrapper">
+
+      <div class="header">
+        <nav class="navbar navbar-site navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
+                            class="icon-bar"></span> <span class="icon-bar"></span></button>
+                    <a href="https://bigworthy.com" class="navbar-brand logo logo-title">
+                        <!-- Original Logo will be placed here  -->
+						<span>Bigworthy </span> </a></div>
+                <div class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav navbar-right">
+                       
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span>eddiedonhill@gmail.com</span>  <i
+                                class=" icon-down-open-big fa"></i></a>
+                            <ul class="dropdown-menu user-menu">
+                               <li class="active"><a href="/account-home"><i class="icon-home"></i> Home
+                                </a></li>
+
+                                <li><a href="/account-postings"><i class="icon-th-thumb"></i> My posts </a></li>
+                                <li><a href="/account-favorites"><i class="fa fa-star"></i> Favorites </a>
+                                </li>
+                                <li><a href="/account-saved-search"><i class="icon-folder-close"></i> Saved search
+                                </a></li>
+                                <li><a href="/account-archive"><i class="fa fa-archive"></i> Archives
+                                </a></li>
+								<li><a href="/logout.php"><i class="icons icon-logout"></i> Logout
+                                </a></li>
+                              
+                                
+                            </ul>
+                        </li>
+                        <li class="postadd"><a class="btn btn-block   btn-border btn-post btn-danger"
+                                               href="/post">Post</a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
+    <!-- /.header -->    <!-- /.header -->
+<div class="intro" style="background-image: url(images/bg3.jpg);">
+        <div class="dtable hw100">
+            <div class="dtable-cell hw100">
+                <div class="container text-center">
+                   
+                   
+                    <div class="row search-row animated fadeInUp">
+						<div class="col-lg-4 col-sm-4 search-col relative"><i class="icon-docs icon-append"></i>
+                            <input type="text" name="ads" class="form-control has-icon"
+                                   placeholder="What are you looking for?" value="">
+                        </div>
+					    <div class="col-lg-4 col-sm-4 search-col relative locationicon">
+                            <i class="icon-location-2 icon-append"></i>
+                            <input type="text" name="country" id="autocomplete-ajax"
+                                   class="form-control locinput input-rel searchtag-input has-icon"
+                                   placeholder="City/location" value="">
+
+                        </div>
+                        
+                        <div class="col-lg-4 col-sm-4 search-col">
+                            <button class="btn btn-primary btn-search btn-block"><i
+                                    class="icon-search"></i><strong>Find</strong></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+
+    <div class="main-container">
+        <div class="container">
+            <div class="row">
+			 
+                    
+                <div class="col-sm-9 page-content col-thin-right">
+                    <div class="inner-box category-content">
+                       
+						
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 ">
+                                <div class="cat-list">
+                                    <h3 class="cat-title"><a href="automobiles"><i class="fa fa-car ln-shadow"></i>
+                                        Automobiles </a>
+
+                                        <span data-target=".cat-id-1" data-toggle="collapse"
+                                              class="btn-cat-collapsed collapsed">   <span
+                                                class=" icon-down-open-big"></span> </span>
+                                    </h3>
+                                    <ul class="cat-collapse collapse in cat-id-1">
+										<li><a href="search.php">ATVs</a></li>
+										<li><a href="search.php">Auto Parts</a></li>
+										<li><a href="search.php">Boats</a></li>
+                                        <li><a href="search.php">Cars & Trucks</a></li>                                      
+										  <li><a href="search.php">Industrial</a></li>
+                                        <li><a href="search.php">Motorcycles &amp; Scooters</a></li>                                    
+										<li><a href="search.php">RVs & Camping</a></li>
+                                        <li><a href="search.php">Vans & SUVs</a></li>
+                                        <li><a href="search.php">Wanted</a></li>
+                                    </ul>
+                                </div>
+                                <div class="cat-list">
+                                    <h3 class="cat-title"><a href="property"><i class="icon-home ln-shadow"></i>
+                                        Property </a> <span data-target=".cat-id-2"
+                                                                                              data-toggle="collapse"
+                                                                                              class="btn-cat-collapsed collapsed">   <span
+                                            class=" icon-down-open-big"></span> </span></h3>
+
+
+                                    <ul class="cat-collapse collapse in cat-id-2">
+										<li><a href="search.php">Apartments</a></li>
+										<li><a href="search.php">Housing</a></li>
+                                        <li><a href="search.php">Farms + Ranches </a></li>
+                                        <li><a href="search.php">Land </a></li>
+										 <li><a href="search.php">Parking </a></li>
+										<li><a href="search.php">Office + Commercial</a></li>
+										 <li><a href="search.php">Rooms</a></li>
+										  <li><a href="search.php">Storage </a></li>
+                                        <li><a href="search.php">Vacation Rentals </a></li>                                     
+                                    </ul>
+                                </div>
+                                <div class="cat-list">
+                                    <h3 class="cat-title"><a href="jobs"><i class="icons icon-flag ln-shadow"></i>
+                                        Jobs </a>
+
+                                        <span data-target=".cat-id-3" data-toggle="collapse"
+                                              class="btn-cat-collapsed collapsed">   <span
+                                                class=" icon-down-open-big"></span> </span>
+                                    </h3>
+                                    <ul class="cat-collapse collapse in cat-id-3 ">
+                                        <li><a href="search.php">Accounting + Finance</a></li>
+										<li><a href="search.php">Architecture</a></li>
+										<li><a href="search.php">Arts & Media</a></li>
+										<li><a href="search.php">Science</a></li>
+										<li><a href="search.php">Business + Management</a></li>
+										<li><a href="search.php">Customer Service</a></li>
+										<li><a href="search.php">Education</a></li>
+										<li><a href="search.php">Engineering</a></li>
+										<li><a href="search.php">Food & Hospitality</a></li>
+										<li><a href="search.php">General Labor</a></li>
+										<li><a href="search.php">Government</a></li>
+										<li><a href="search.php">Human Resources</a></li>
+										<li><a href="search.php">IT & Web Services</a></li>
+										<li><a href="search.php">Legal + Paralegal</a></li>
+										<li><a href="search.php">Manufacturing</a></li>
+										<li><a href="search.php">Marketing</a></li>
+										<li><a href="search.php">Health + Medical</a></li>
+										<li><a href="search.php">Nonprofit</a></li>
+										<li><a href="search.php">Real Estate</a></li>
+										<li><a href="search.php">Retail + Wholesale</a></li>
+										<li><a href="search.php">Health & Beauty</a></li>
+										<li><a href="search.php">Spa & Fitness</a></li>
+										<li><a href="search.php">Security</a></li>
+										<li><a href="search.php">Skilled Trade</a></li>
+										<li><a href="search.php">Transportation</a></li>
+										<li><a href="search.php">Film & Television</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="cat-list">
+                                    <h3 class="cat-title"><a href="services"><i
+                                            class="fa fa-briefcase ln-shadow"></i> Services </a>
+                                        <span data-target=".cat-id-4" data-toggle="collapse"
+                                              class="btn-cat-collapsed collapsed">   <span
+                                                class=" icon-down-open-big"></span> </span>
+                                    </h3>
+                                    <ul class="cat-collapse collapse in cat-id-4">
+                                     <li><a href="search.php">Automotive</a></li>
+                                        <li><a href="search.php">Building, Home &amp; Removals</a></li>
+										<li><a href="search.php">Childcare </a></li>
+										<li><a href="search.php">Computers & Technology</a></li>
+                                        <li><a href="search.php">Entertainment</a></li>
+										<li><a href="search.php">Financial</a></li>
+                                        <li><a href="search.php">Health &amp; Beauty</a></li>
+										<li><a href="search.php">Household</a></li>
+										<li><a href="search.php">Legal Services</a></li>   
+										<li><a href="search.php">Lessons</a></li>
+                                        <li><a href="search.php">Property &amp; Shipping</a></li>
+										<li><a href="search.php">Real Estate</a></li>
+                                        <li><a href="search.php">Tax, Money &amp; Visas</a></li>
+                                        <li><a href="search.php">Telecoms &amp; Computers</a></li>
+                                        <li><a href="search.php">Travel Services &amp; Tours</a></li>
+                                        <li><a href="search.php">Tuition &amp; Lessons</a></li>
+                                    </ul>
+                                </div>
+                                <div class="cat-list">
+                                    <h3 class="cat-title"><a href="learning"><i
+                                            class="icon-book-open ln-shadow"></i> Learning </a> <span data-target=".cat-id-5"
+                                                                                  data-toggle="collapse"
+                                                                                  class="btn-cat-collapsed collapsed">   <span
+                                            class=" icon-down-open-big"></span> </span>
+                                    </h3>
+                                    <ul class="cat-collapse collapse in cat-id-5">
+                                        <li><a href="search.php"> Automotive </a></li>
+                                        <li><a href="search.php"> Computer & Multimedia  </a></li>
+										<li><a href="search.php"> Community College </a></li>
+										<li><a href="search.php"> Vocational </a></li>
+                                        <li><a href="search.php"> Sports  </a></li>
+                                        <li><a href="search.php"> Home Improvement  </a></li>
+                                        <li><a href="search.php"> Language </a></li>
+                                        <li><a href="search.php"> Music </a></li>
+                                        <li><a href="search.php"> Personal Fitness </a></li>
+                                        <li><a href="search.php"> Other Classes </a></li>									
+                                    </ul>
+                                </div>
+                                <div class="cat-list">
+                                    <h3 class="cat-title"><a href="pets"><i
+                                            class="icon-guidedog ln-shadow"></i> Pets </a>
+                                        <span data-target=".cat-id-6" data-toggle="collapse"
+                                              class="btn-cat-collapsed collapsed">   <span
+                                                class=" icon-down-open-big"></span> </span>
+                                    </h3>
+                                    <ul class="cat-collapse collapse in cat-id-6">
+                                        <li><a href="search.php">Pets for Sale</a></li>
+                                        <li><a href="category.html">Pet Services</a></li>
+                                        <li><a href="category.html">Equipment &amp; Accessories</a></li>
+                                        <li><a href="category.html">Lost &amp; Found</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4   last-column">
+                                <div class="cat-list">
+                                    <h3 class="cat-title"><a href="forsale"><i
+                                            class=" icon-basket-1 ln-shadow"></i> For Sale </a> <span data-target=".cat-id-7"
+                                                                                  data-toggle="collapse"
+                                                                                  class="btn-cat-collapsed collapsed">   <span
+                                            class=" icon-down-open-big"></span> </span>
+                                    </h3>
+                                    <ul class="cat-collapse collapse in cat-id-7">
+										<li><a href="search.php">Antiques</a></li>
+										<li><a href="search.php">Appliances</a></li>
+										<li><a href="search.php">Arts & Crafts</a></li>										
+                                        <li><a href="search.php">Audio &amp; Stereo</a></li>
+                                        <li><a href="search.php">Baby & Kids</a></li>
+										<li><a href="search.php">Bikes</a></li>
+                                        <li><a href="search.php">Boats</a></li>                                        										
+                                        <li><a href="search.php">CDs, DVDs, Games &amp; Books</a></li>
+                                        <li><a href="search.php">Clothes, Footwear &amp; Accessories</a></li>
+                                        <li><a href="search.php">Computers &amp; Software</a></li>
+										<li><a href="search.php">Electronics</a></li>
+										<li><a href="search.php">General For Sale</a></li>
+										 <li><a href="search.php">Health & Beauty</a></li>
+                                        <li><a href="search.php">Home &amp; Garden</a></li>
+                                        <li><a href="search.php">Music &amp; Instruments</a></li>
+                                        <li><a href="search.php">Furniture</a></li>
+                                        <li><a href="search.php">Phones, Mobile Phones &amp; Telecoms</a></li>
+                                        <li><a href="search.php">Sports Goods</a></li>
+                                        <li><a href="search.php">Tickets</a></li>
+                                        <li><a href="search.php">TV, DVD &amp; Cameras</a></li>
+										<li><a href="search.php">Tools & Equipment</a></li>
+										<li><a href="search.php">Toys & Games</a></li>								
+                                        <li><a href="search.php">Video Games &amp; Consoles</a></li>
+                                        <li><a href="search.php">Freebies</a></li>                                      
+                                        <li><a href="search.php">Stuff Wanted</a></li>
+                                        <li><a href="search.php">Swap Shop</a></li>
+                                    </ul>
+                                </div>
+                                <div class="cat-list ">
+                                    <h3 class="cat-title"><a href="community"><i
+                                            class=" icon-theatre ln-shadow"></i> Community  </a> <span data-target=".cat-id-8"
+                                                                                 data-toggle="collapse"
+                                                                                 class="btn-cat-collapsed collapsed">   <span
+                                            class=" icon-down-open-big"></span> </span>
+                                    </h3>
+                                    <ul class="cat-collapse collapse in cat-id-8">
+                                        <li><a href="search.php">Announcements </a></li>
+										<li><a href="search.php">Carpool </a></li>
+										<li><a href="search.php">Events</a></li>								
+                                        <li><a href="search.php">Charity - Donate - NGO </a></li>
+										  <li><a href="search.php">Garage Sale</a></li>
+                                        <li><a href="search.php">Lost & Found </a></li>
+										<li><a href="search.php">Musicians </a></li>
+										<li><a href="search.php">Talent </a></li>
+										<li><a href="search.php">Volunteers</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                <div class="col-sm-3 page-sidebar col-thin-left">
+                    <aside>
+                        
+                        <div aria-multiselectable="true" role="tablist" id="accordion" class="panel-group faq-panel">
+                        <div class="panel">
+                            <div id="headingOne" role="tab" class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a aria-controls="collapseOne" aria-expanded="true" href="#collapseOne"
+                                       data-parent="#accordion" data-toggle="collapse">
+                                        California
+                                    </a>
+                                </h4>
+                            </div>
+                            <div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse in"
+                                 id="collapseOne">
+                                <div class="panel-body">
+                                    <ul>
+									<li><a href="https://www.bigworthy.com/losangeles">Los Angeles</a></li><li><a href="https://www.bigworthy.com/sandiego">San Diego</a></li><li><a href="https://www.bigworthy.com/sanjose">San Jose</a></li><li><a href="https://www.bigworthy.com/sanfrancisco">San Francisco</a></li><li><a href="https://www.bigworthy.com/longbeach">Long Beach</a></li><li><a href="https://www.bigworthy.com/fresno">Fresno</a></li><li><a href="https://www.bigworthy.com/sacramento">Sacramento</a></li><li><a href="https://www.bigworthy.com/oakland">Oakland</a></li><li><a href="https://www.bigworthy.com/santaana">Santa Ana</a></li><li><a href="https://www.bigworthy.com/anaheim">Anaheim</a></li><li><a href="https://www.bigworthy.com/riverside">Riverside</a></li><li><a href="https://www.bigworthy.com/bakersfield">Bakersfield</a></li><li><a href="https://www.bigworthy.com/stockton">Stockton</a></li><li><a href="https://www.bigworthy.com/fremont">Fremont</a></li><li><a href="https://www.bigworthy.com/glendale">Glendale</a></li><li><a href="https://www.bigworthy.com/huntingtonbeach">Huntington Beach</a></li><li><a href="https://www.bigworthy.com/modesto">Modesto</a></li><li><a href="https://www.bigworthy.com/sanbernardino">San Bernardino</a></li><li><a href="https://www.bigworthy.com/chulavista">Chula Vista</a></li><li><a href="https://www.bigworthy.com/oxnard">Oxnard</a></li><li><a href="https://www.bigworthy.com/gardengrove">Garden Grove</a></li><li><a href="https://www.bigworthy.com/oceanside">Oceanside</a></li><li><a href="https://www.bigworthy.com/ontario">Ontario</a></li><li><a href="https://www.bigworthy.com/santaclarita">Santa Clarita</a></li><li><a href="https://www.bigworthy.com/salinas">Salinas</a></li><li><a href="https://www.bigworthy.com/pomona">Pomona</a></li><li><a href="https://www.bigworthy.com/santarosa">Santa Rosa</a></li><li><a href="https://www.bigworthy.com/irvine">Irvine</a></li><li><a href="https://www.bigworthy.com/morenovalley">Moreno Valley</a></li><li><a href="https://www.bigworthy.com/pasadena">Pasadena</a></li><li><a href="https://www.bigworthy.com/hayward">Hayward</a></li><li><a href="https://www.bigworthy.com/torrance">Torrance</a></li><li><a href="https://www.bigworthy.com/escondido">Escondido</a></li><li><a href="https://www.bigworthy.com/sunnyvale">Sunnyvale</a></li><li><a href="https://www.bigworthy.com/fontana">Fontana</a></li><li><a href="https://www.bigworthy.com/orange">Orange</a></li><li><a href="https://www.bigworthy.com/ranchocucamonga">Rancho Cucamonga</a></li><li><a href="https://www.bigworthy.com/eastlosangeles">East Los Angeles</a></li><li><a href="https://www.bigworthy.com/fullerton">Fullerton</a></li><li><a href="https://www.bigworthy.com/corona">Corona</a></li><li><a href="https://www.bigworthy.com/concord">Concord</a></li><li><a href="https://www.bigworthy.com/lancaster">Lancaster</a></li><li><a href="https://www.bigworthy.com/thousandoaks">Thousand Oaks</a></li><li><a href="https://www.bigworthy.com/vallejo">Vallejo</a></li><li><a href="https://www.bigworthy.com/palmdale">Palmdale</a></li><li><a href="https://www.bigworthy.com/elmonte">El Monte</a></li><li><a href="https://www.bigworthy.com/inglewood">Inglewood</a></li><li><a href="https://www.bigworthy.com/simivalley">Simi Valley</a></li><li><a href="https://www.bigworthy.com/costamesa">Costa Mesa</a></li><li><a href="https://www.bigworthy.com/downey">Downey</a></li><li><a href="https://www.bigworthy.com/westcovina">West Covina</a></li><li><a href="https://www.bigworthy.com/dalycity">Daly City</a></li><li><a href="https://www.bigworthy.com/citrusheights">Citrus Heights</a></li><li><a href="https://www.bigworthy.com/norwalk">Norwalk</a></li><li><a href="https://www.bigworthy.com/berkeley">Berkeley</a></li><li><a href="https://www.bigworthy.com/santaclara">Santa Clara</a></li><li><a href="https://www.bigworthy.com/sanbuenaventura">San Buenaventura</a></li><li><a href="https://www.bigworthy.com/burbank">Burbank</a></li><li><a href="https://www.bigworthy.com/missionviejo">Mission Viejo</a></li><li><a href="https://www.bigworthy.com/elcajon">El Cajon</a></li><li><a href="https://www.bigworthy.com/richmond">Richmond</a></li><li><a href="https://www.bigworthy.com/compton">Compton</a></li><li><a href="https://www.bigworthy.com/fairfield">Fairfield</a></li><li><a href="https://www.bigworthy.com/arden-arcade">Arden-Arcade</a></li><li><a href="https://www.bigworthy.com/sanmateo">San Mateo</a></li><li><a href="https://www.bigworthy.com/visalia">Visalia</a></li><li><a href="https://www.bigworthy.com/santamonica">Santa Monica</a></li><li><a href="https://www.bigworthy.com/carson">Carson</a></li>                                        </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <div id="headingTwo" role="tab" class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a aria-controls="collapseTwo" aria-expanded="false" href="#collapseTwo"
+                                       data-parent="#accordion" data-toggle="collapse" class="collapsed">
+                                       United States
+                                    </a>
+                                </h4>
+                            </div>
+                            <div aria-labelledby="headingTwo" role="tabpanel" class="panel-collapse collapse"
+                                 id="collapseTwo">
+                                <div class="panel-body">
+                                    <ul>
+                                           
+                                            <li><a href="../cities?state_id=1521">Alabama</a></li>
+                                            <li><a href="../cities?state_id=1522">Alaska</a></li>
+											<li><a href="../cities?state_id=1523">Arizona</a></li>
+											<li><a href="../cities?state_id=1524">Arkansas</a></li>
+											<li><a href="../cities?state_id=1525">California</a></li>
+											<li><a href="../cities?state_id=1526">Colorado</a></li>
+											<li><a href="../cities?state_id=1527">Connecticut</a></li>
+											<li><a href="#">Delaware</a></li>
+											<li><a href="../cities?state_id=1528">District of Columbia</a></li>
+											<li><a href="../cities?state_id=1529">Florida</a></li>
+											<li><a href="../cities?state_id=1530">Georgia</a></li>
+											<li><a href="../cities?state_id=1531">Hawaii</a></li>
+											<li><a href="../cities?state_id=1532">Idaho</a></li>
+											<li><a href="../cities?state_id=1533">Illinois</a></li>
+											<li><a href="../cities?state_id=1534">Indiana</a></li>
+											<li><a href="../cities?state_id=1535">Iowa</a></li>
+											<li><a href="../cities?state_id=1536">Kansas</a></li>
+											<li><a href="../cities?state_id=1537">Kentucky</a></li>
+											<li><a href="../cities?state_id=1538">Louisiana</a></li>
+											<li><a href="#">Maine</a></li>
+											<li><a href="../cities?state_id=1539">Maryland</a></li>
+											<li><a href="../cities?state_id=1540">Massachusetts</a></li>
+											<li><a href="../cities?state_id=1541">Michigan</a></li>
+											<li><a href="../cities?state_id=1542">Minnesota</a></li>
+											<li><a href="../cities?state_id=1543">Mississippi</a></li>
+											<li><a href="../cities?state_id=1544">Missouri</a></li>
+											<li><a href="../cities?state_id=1545">Montana</a></li>
+											<li><a href="../cities?state_id=1546">Nebraska</a></li>
+											<li><a href="../cities?state_id=1547">Nevada</a></li>
+											<li><a href="../cities?state_id=1548">New Hampshire</a></li>
+											<li><a href="../cities?state_id=1549">New Jersey</a></li>
+											<li><a href="../cities?state_id=1550">New Mexico</a></li>
+											<li><a href="../cities?state_id=1551">New York</a></li>
+											<li><a href="../cities?state_id=1552">North Carolina</a></li>
+											<li><a href="#">North Dakota</a></li>
+											<li><a href="../cities?state_id=1553">Ohio</a></li>
+											<li><a href="../cities?state_id=1554">Oklahoma</a></li>
+											<li><a href="../cities?state_id=1555">Oregon</a></li>
+											<li><a href="../cities?state_id=1556">Pennsylvania</a></li>
+											<li><a href="../cities?state_id=1557">Rhode Island</a></li>
+											<li><a href="../cities?state_id=1558">South Carolina</a></li>
+											<li><a href="../cities?state_id=1559">South Dakota</a></li>
+											<li><a href="../cities?state_id=1560">Tennessee</a></li>
+											<li><a href="../cities?state_id=1561">Texas</a></li>
+											<li><a href="../cities?state_id=1562">Utah</a></li>
+											<li><a href="#">Vermont</a></li>
+											<li><a href="../cities?state_id=1563">Virginia</a></li>
+											<li><a href="../cities?state_id=1564">Washington</a></li>
+											<li><a href="#">West Virginia</a></li>
+											<li><a href="../cities?state_id=1565">Wisconsin</a></li>
+											<li><a href="#">Wyoming</a></li>
+                                        </ul> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <div id="headingThree" role="tab" class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a aria-controls="collapseThree" aria-expanded="false" href="#collapseThree"
+                                       data-parent="#accordion" data-toggle="collapse" class="collapsed">
+                                        Worldwide
+                                    </a>
+                                </h4>
+                            </div>
+                            <div aria-labelledby="headingThree" role="tabpanel" class="panel-collapse collapse"
+                                 id="collapseThree">
+                                <div class="panel-body">
+								<ul>
+										<li><a href="#">United States</a></li>
+                                        <li><a href="#">Europe</a></li>
+										<li><a href="#">Canada</a></li>
+										<li><a href="#">Asia &#8226; Pacific &#8226; India</a></li>
+										<li><a href="#">Latin America</a></li>
+										<li><a href="#">Middle East</a></li>
+										<li><a href="#">Africa</a></li>
+										<li><a href="#">Austrailia &#8226; New Zealand</a></li>
+								</ul>
+                                </div>
+                            </div>
+                        </div>
+
+        
+                    </div>
+                        
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.main-container -->
+
+    
+   
+
+
+     <div class="footer" id="footer">
+        <div class="container">
+            <ul class=" pull-left navbar-link footer-nav">
+                <li><a href="https://bigworthy.com"> Home </a> <a href="/about"> About us </a> <a href="/terms"> Terms and
+                    Conditions </a> <a href="/privacy"> Privacy Policy </a> <a href="/contact"> Contact us </a> <a
+                        href="/faq"> FAQ </a>
+            </ul>
+            <ul class=" pull-right navbar-link footer-nav">
+                <li> &copy; 2017 Bigworthy</li>
+            </ul>			
+        </div>
+    </div>
+
+
+      <!-- /.footer -->
+</div>
+<!-- /.wrapper -->
+<!-- Modal Change City -->
+
+<div class="modal fade" id="selectRegion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel"><i class=" icon-map"></i> Choose your region </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+
+
+                        <div style="clear:both"></div>
+                        <div class="col-sm-6 no-padding">
+                           <form action="" method="">
+				   <div class="col-md-12">
+                     <div class="input-group">
+                      <input type="text" placeholder="Enter your location" class="form-control" aria-label="...">
+                      <div class="input-group-btn">
+                        <button class="btn btn-block btn-primary "><i class="fa fa-search"></i></button>
+                       
+                      </div><!-- /btn-group -->
+                    </div><!-- /input-group -->
+                </div>
+				</form>
+                        </div>
+                       
+
+                       
+                    </div>
+                
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /.modal -->
+<!-- Le javascript
+================================================== -->
+
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- include carousel slider plugin  -->
+<script src="../assets/js/owl.carousel.min.js"></script>
+
+<!-- include equal height plugin  -->
+<script src="../assets/js/jquery.matchHeight-min.js"></script>
+
+<!-- include jquery list shorting plugin plugin  -->
+<script src="../assets/js/hideMaxListItem.js"></script>
+
+<!-- include jquery.fs plugin for custom scroller and selecter  -->
+<script src="../assets/plugins/jquery.fs.scroller/jquery.fs.scroller.js"></script>
+<script src="../assets/plugins/jquery.fs.selecter/jquery.fs.selecter.js"></script>
+
+
+<!-- include custom script for site  -->
+<script src="../assets/js/script.js"></script>
+
+
+<!-- include jquery autocomplete plugin  -->
+
+<script type="text/javascript" src="../assets/plugins/autocomplete/jquery.mockjax.js"></script>
+<script type="text/javascript" src="../assets/plugins/autocomplete/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="../assets/plugins/autocomplete/usastates.js"></script>
+
+<script type="text/javascript" src="../assets/plugins/autocomplete/autocomplete-demo.js"></script>
+
+
+</body>
+</html>
